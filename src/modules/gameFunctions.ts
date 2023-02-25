@@ -35,10 +35,11 @@ export const squareIsCorrect = (square: SquareInt) => {
 
 export const populateGame = (game: (number|null)[][]) => {
   let outputGame: BoardInt = blankGame;
-  for (let i = 0; i < 10; i++) {
-    for (let j = 0; j < 10; j++) {
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
       outputGame[i].squares[j].value = game[i][j]
     }
   }
+  console.log('outputGame:', outputGame)
   return outputGame;
 }

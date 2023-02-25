@@ -17,10 +17,10 @@ const FullBoard: React.FC<Props> = (props) => {
   } = props
 
   return (
-    <div>
-      {currentGame.map(medSquare => {
+    <div className = 'board'>
+      {currentGame.map((medSquare, index) => {
         return (
-          <MedSquare medSquare={medSquare} />
+          <MedSquare medSquare={medSquare} key = {index} />
         )
       })
       }

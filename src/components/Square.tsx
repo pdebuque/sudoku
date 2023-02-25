@@ -13,7 +13,7 @@ const {
 } = props
 
   return (
-    <div className = 'square'>square.value</div>
+    <div className = 'square'>{square.value}</div>
   )
 }
 

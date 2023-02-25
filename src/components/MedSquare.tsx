@@ -16,9 +16,9 @@ const {
 
   return (
     <div className = 'medSquare'>
-      {medSquare.squares.map(square=>{
+      {medSquare.squares.map((square,index)=>{
         return(
-          <Square square={square}/>
+          <Square square={square} key = {index}/>
         )
       })}
     </div>
