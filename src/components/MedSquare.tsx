@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { SquareInt, MedSquareInt } from '../model'
+import { SquareInt, MedSquareInt } from '../model';
+
+import Square from './Square'
 
 interface Props {
   medSquare: MedSquareInt;
@@ -9,13 +11,17 @@ interface Props {
 const MedSquare: React.FC<Props> = (props) => {
 
 const {
-  medSquare, 
-  square
+  medSquare,
 } = props
 
   return (
     <div className = 'medSquare'>
-    MedSquare: React.FC</div>
+      {medSquare.squares.map(square=>{
+        return(
+          <Square square={square}/>
+        )
+      })}
+    </div>
   )
 }
 

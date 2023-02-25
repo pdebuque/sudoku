@@ -40,4 +40,5 @@ export const populateGame = (game: (number|null)[][]) => {
       outputGame[i].squares[j].value = game[i][j]
     }
   }
+  return outputGame;
 }

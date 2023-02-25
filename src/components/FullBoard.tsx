@@ -18,9 +18,9 @@ const FullBoard: React.FC<Props> = (props) => {
 
   return (
     <div>
-      {currentGame.map(square => {
+      {currentGame.map(medSquare => {
         return (
-          <MedSquare medSquare={square} />
+          <MedSquare medSquare={medSquare} />
         )
       })
       }
