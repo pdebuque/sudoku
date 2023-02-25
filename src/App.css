@@ -1,6 +1,7 @@
 :root {
-  --board-size: 15em;
+  --board-size: 25em;
   --square-size: calc(var(--board-size)/9);
+  --number-size: 1em;
 }
 
 .App {
@@ -23,11 +24,14 @@
 }
 
 .square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: .5px solid grey;
   box-sizing: border-box;
-  display: inline-block;
   height: var(--square-size);
   width: var(--square-size);
+  font-size: var(--number-size);
 }
 
 .square-input {
@@ -36,7 +40,7 @@
   height: calc(var(--square-size)*.9);
   border: none;
   box-sizing: border-box;
-  font-size: 1em;
+  font-size: var(--number-size);
   text-align: center;
 }
 

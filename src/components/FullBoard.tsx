@@ -7,20 +7,22 @@ import { BoardInt, MedSquareInt, SquareInt } from '../model'
 import MedSquare from './MedSquare'
 
 interface Props {
-  currentGame: BoardInt
+  currentGame: BoardInt;
+  setCurrentGame: React.Dispatch<any>;
 }
 
 const FullBoard: React.FC<Props> = (props) => {
 
   const {
-    currentGame
+    currentGame,
+    setCurrentGame
   } = props
 
   return (
     <div className = 'board'>
       {currentGame.map((medSquare, index) => {
         return (
-          <MedSquare medSquare={medSquare} key = {index} />
+          <MedSquare currentGame={currentGame} setCurrentGame={setCurrentGame} medSquare={medSquare} key = {index} />
         )
       })
       }
