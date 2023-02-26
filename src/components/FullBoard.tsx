@@ -20,7 +20,7 @@ const FullBoard: React.FC<Props> = (props) => {
 
   return (
     <div className = 'board'>
-      {currentGame.map((medSquare, index) => {
+      {currentGame.board.map((medSquare, index) => {
         return (
           <MedSquare currentGame={currentGame} medSquare={medSquare} key = {index} />
         )

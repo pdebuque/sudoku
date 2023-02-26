@@ -35,10 +35,17 @@ const Square: React.FC<Props> = (props) => {
   }
 
   const handleSubmit: (e: any) => void = (e) => {
+    setFocus(false);
     e.preventDefault();
     console.log('submit');
+    if (inputValue === 0) setInputValue('');
     dispatch(saveValue({...square, value: inputValue}))
-    setFocus(false);
+  }
+
+  const displayNumber = (square: SquareInt) => {
+    if (square.static) return <b>{square.value}</b>
+    if (square.value==='.' || square.value===0) return ''
+    return square.value
   }
 
   return (
@@ -57,7 +64,7 @@ const Square: React.FC<Props> = (props) => {
             />
           </form>
           :
-          square.static ? <b>{square.value}</b> : ''
+          displayNumber(square)
       }
     </div>
   )

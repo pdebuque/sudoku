@@ -4,6 +4,7 @@ import './App.css';
 // libraries
 import { useAppSelector, useAppDispatch } from './hooks'
 import { setGame } from './redux/reducers/game.reducer';
+import axios from 'axios'
 
 // components
 import FullBoard from './components/FullBoard';
@@ -17,14 +18,23 @@ import { games } from './games/easy';
 
 function App() {
 
-
-
   const { game } = useAppSelector((state) => state.game)
 
   const dispatch = useAppDispatch()
 
   const handleClick = () => {
     dispatch(setGame(games[0]))
+  }
+
+  const handleRandom = () => {
+    axios.get('https://sudoku-api.vercel.app/api/dosuku')
+      .then(response=>{
+        const puzzle = response.data.newboard.grids[0].value;
+        console.log('got puzzle', puzzle)
+        dispatch(setGame(puzzle))
+      }
+      )
+      .catch(err=>console.log('could not get puzzle', err))
   }
 
   return (
@@ -34,8 +44,9 @@ function App() {
       <header className="App-header">
       </header>
       <Menu />
-      <button onClick = {handleClick}>set game</button>
-      <FullBoard currentGame={game}/>
+      <button onClick={handleClick}>set game</button>
+      <button onClick={handleRandom}>generate random</button>
+      <FullBoard currentGame={game} />
     </div>
   );
 }
