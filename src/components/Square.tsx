@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 
 import { SquareInt, BoardInt } from '../model'
 
+import { useAppDispatch, useAppSelector } from '../hooks';
+import {saveValue} from '../redux/reducers/game.reducer'
+
 interface Props {
   square: SquareInt;
   currentGame: BoardInt;
-  setCurrentGame: React.Dispatch<any>;
+  // setCurrentGame: React.Dispatch<any>;
 }
 
 const Square: React.FC<Props> = (props) => {
@@ -13,28 +16,30 @@ const Square: React.FC<Props> = (props) => {
   const {
     square,
     currentGame,
-    setCurrentGame
+    // setCurrentGame
   } = props
+
+  const dispatch = useAppDispatch();
+  const { game } = useAppSelector((state) => state.game)
 
   const [focus, setFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<number | string>('')
 
   const handleClick: (e: any) => void = (e) => {
-    console.log('clicked square: ', square)
+    // console.log('clicked square: ', square)
     setFocus(true)
   }
 
   const handleDisable: () => void = () => {
-    console.log('cannot click this square')
+    // console.log('cannot click this square')
   }
 
   const handleSubmit: (e: any) => void = (e) => {
     e.preventDefault();
     console.log('submit');
+    dispatch(saveValue({...square, value: inputValue}))
     setFocus(false);
   }
-
-
 
   return (
     <div

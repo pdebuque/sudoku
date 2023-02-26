@@ -1,11 +1,13 @@
-// import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import gameReducer from './reducers/game.reducer';
 
-// const store = configureStore({
-//   reducer: {
-//     game: gameReducer
-//   }
-// })
+const store = configureStore({
+  reducer: {
+    game: gameReducer
+  }
+})
 
-// export default store
+export default store
 
-export {}
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

@@ -10,4 +10,4 @@ const game1 = [
   [1, 6, 3, '.', '.', 7, 8, 9, '.'],
 ]
 
-export const games = [game1]
+export const games = [ game1 ]

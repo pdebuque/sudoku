@@ -12,8 +12,9 @@ interface Board []
 */
 
 import { BoardInt, MedSquareInt, SquareInt, blankGame } from '../model'
+import type { Game } from '../model'
 
-export const squareIsCorrect = (square: SquareInt) => {
+export const checkSquare = (square: SquareInt) => {
 
 }
 
@@ -33,14 +34,19 @@ export const squareIsCorrect = (square: SquareInt) => {
 ]
 */
 
-export const populateGame = (game: (number|string)[][]) => {
-  let outputGame: BoardInt = blankGame;
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      outputGame[i].squares[j].value = game[i][j]
-      if (game[i][j]!== '.') outputGame[i].squares[j].static=true
-    }
-  }
-  console.log('outputGame:', outputGame)
-  return outputGame;
-}
+// const replaceSquare = (game: Game, square: Square) => {
+//   return game.filter()
+// }
+
+// export const populateGame = (game: Game) => {
+//   let outputGame: BoardInt = blankGame;
+//   for (let i = 0; i < 9; i++) {
+//     for (let j = 0; j < 9; j++) {
+//       outputGame[i].squares[j].value = game[i][j];
+//       if (game[i][j] !== '.') outputGame[i].squares[j].static = true
+//     }
+//   }
+//   console.log('outputGame:', outputGame)
+//   return outputGame;
+// }
+

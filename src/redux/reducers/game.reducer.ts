@@ -1,17 +1,41 @@
-import {createSlice} from '@reduxjs/toolkit';
-import { blankGame } from '../../model';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { blankGame, BoardInt, SquareInt } from '../../model';
+import type { Game } from '../../model';
 
-const initialState = {
+// import {populateGame} from '../../modules/gameFunctions'
+
+type InitialState = {
+  game: BoardInt
+}
+
+const initialState: InitialState = {
   game: blankGame
 }
 
+
 const gameSlice = createSlice({
   name: 'game',
-  initialState: initialState,
+  initialState,
   reducers: {
-    // to change the value of a square, expect value 
-    saveValue(state, action) {
-
+    // to set the game, expect a game object
+    setGame(state, action: PayloadAction<Game>) {
+      for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+          state.game[i].squares[j].value = action.payload[i][j];
+          if (action.payload[i][j] !== '.') state.game[i].squares[j].static = true
+        }
+      }
+    },
+    // to change the value of a square, expect a square object {}
+    saveValue(state, action: PayloadAction<SquareInt>) {
+      const { row, column, medSquare, value } = action.payload
+      for (let square of state.game[medSquare-1].squares) {
+        if (square.row === row && square.column === column) square.value = value
+      }
     }
   }
 })
+
+export const { saveValue, setGame } = gameSlice.actions;
+
+export default gameSlice.reducer;

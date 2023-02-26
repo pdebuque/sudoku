@@ -8,21 +8,21 @@ import MedSquare from './MedSquare'
 
 interface Props {
   currentGame: BoardInt;
-  setCurrentGame: React.Dispatch<any>;
+  // setCurrentGame: React.Dispatch<any>;
 }
 
 const FullBoard: React.FC<Props> = (props) => {
 
   const {
     currentGame,
-    setCurrentGame
+    // setCurrentGame
   } = props
 
   return (
     <div className = 'board'>
       {currentGame.map((medSquare, index) => {
         return (
-          <MedSquare currentGame={currentGame} setCurrentGame={setCurrentGame} medSquare={medSquare} key = {index} />
+          <MedSquare currentGame={currentGame} medSquare={medSquare} key = {index} />
         )
       })
       }
