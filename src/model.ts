@@ -19,6 +19,11 @@ export interface BoardInt {
   board: Array<MedSquareInt>
 }
 
+export type Game = {
+  difficulty: string;
+  board: (number|string)[][];
+}
+
 export const blankGame:BoardInt = {
   difficulty: 'easy',
   board: [
@@ -717,7 +722,5 @@ squares: [
 },
 ]
 }
-
-export type Game = (number|string)[][]
 
 // export interface MedSquare 

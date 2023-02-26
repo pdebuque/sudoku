@@ -12,6 +12,7 @@ import Menu from './components/Menu';
 
 // internal
 import { BoardInt, blankGame } from './model'
+import type {Game} from './model'
 import { games } from './games/easy';
 // import { populateGame } from './modules/gameFunctions';
 
@@ -29,8 +30,11 @@ function App() {
   const handleRandom = () => {
     axios.get('https://sudoku-api.vercel.app/api/dosuku')
       .then(response=>{
-        const puzzle = response.data.newboard.grids[0].value;
-        console.log('got puzzle', puzzle)
+        const puzzle:Game = {
+          difficulty: response.data.newboard.grids[0].difficulty,
+          board: response.data.newboard.grids[0].value
+        };
+        console.log('got puzzle', response.data)
         dispatch(setGame(puzzle))
       }
       )
@@ -46,6 +50,7 @@ function App() {
       <Menu />
       <button onClick={handleClick}>set game</button>
       <button onClick={handleRandom}>generate random</button>
+      <p>{game.difficulty}</p>
       <FullBoard currentGame={game} />
     </div>
   );
