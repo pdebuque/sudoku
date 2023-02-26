@@ -3,7 +3,8 @@ export interface SquareInt {
   column: number;
   medSquare: number;
   notes: number[];
-  value: number | null;
+  value: number | string;
+  static: boolean;
 }
 
 export interface MedSquareInt {
@@ -13,7 +14,7 @@ export interface MedSquareInt {
 
 // extends Array<SquareInt>{}
 
-export interface BoardInt extends Array<MedSquareInt>{}
+export interface BoardInt extends Array<MedSquareInt> { }
 
 export const blankGame:BoardInt = [
 {
@@ -24,63 +25,72 @@ squares: [
       column: 1,
       medSquare: 1,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 1,
       column: 2,
       medSquare: 1,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 1,
       column: 3,
       medSquare: 1,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 2,
       column: 1,
       medSquare: 1,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 2,
       column: 2,
       medSquare: 1,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 2,
       column: 3,
       medSquare: 1,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 3,
       column: 1,
       medSquare: 1,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 3,
       column: 2,
       medSquare: 1,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 3,
       column: 3,
       medSquare: 1,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
   ]
 },
@@ -92,63 +102,72 @@ squares: [
       column: 4,
       medSquare: 2,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 1,
       column: 5,
       medSquare: 2,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 1,
       column: 6,
       medSquare: 2,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 2,
       column: 4,
       medSquare: 2,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 2,
       column: 5,
       medSquare: 2,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 2,
       column: 6,
       medSquare: 2,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 3,
       column: 4,
       medSquare: 2,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 3,
       column: 5,
       medSquare: 2,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 3,
       column: 6,
       medSquare: 2,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
   ]
 },
@@ -160,63 +179,72 @@ squares: [
       column: 7,
       medSquare: 3,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 1,
       column: 8,
       medSquare: 3,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 1,
       column: 9,
       medSquare: 3,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 2,
       column: 7,
       medSquare: 3,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 2,
       column: 8,
       medSquare: 3,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 2,
       column: 9,
       medSquare: 3,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 3,
       column: 7,
       medSquare: 3,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 3,
       column: 8,
       medSquare: 3,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 3,
       column: 9,
       medSquare: 3,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
   ]
 },
@@ -228,63 +256,72 @@ squares: [
       column: 1,
       medSquare: 4,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 4,
       column: 2,
       medSquare: 4,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 4,
       column: 3,
       medSquare: 4,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 5,
       column: 1,
       medSquare: 4,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 5,
       column: 2,
       medSquare: 4,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 5,
       column: 3,
       medSquare: 4,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 6,
       column: 1,
       medSquare: 4,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 6,
       column: 2,
       medSquare: 4,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 6,
       column: 3,
       medSquare: 4,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
   ]
 },
@@ -296,63 +333,72 @@ squares: [
       column: 4,
       medSquare: 5,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 4,
       column: 5,
       medSquare: 5,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 4,
       column: 6,
       medSquare: 5,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 5,
       column: 4,
       medSquare: 5,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 5,
       column: 5,
       medSquare: 5,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 5,
       column: 6,
       medSquare: 5,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 6,
       column: 4,
       medSquare: 5,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 6,
       column: 5,
       medSquare: 5,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 6,
       column: 6,
       medSquare: 5,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
   ]
 },
@@ -364,63 +410,72 @@ squares: [
       column: 7,
       medSquare: 6,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 4,
       column: 8,
       medSquare: 6,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 4,
       column: 9,
       medSquare: 6,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 5,
       column: 7,
       medSquare: 6,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 5,
       column: 8,
       medSquare: 6,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 5,
       column: 9,
       medSquare: 6,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 6,
       column: 7,
       medSquare: 6,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 6,
       column: 8,
       medSquare: 6,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 6,
       column: 9,
       medSquare: 6,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
   ]
 },
@@ -432,63 +487,72 @@ squares: [
       column: 1,
       medSquare: 7,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 7,
       column: 2,
       medSquare: 7,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 7,
       column: 3,
       medSquare: 7,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 8,
       column: 1,
       medSquare: 7,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 8,
       column: 2,
       medSquare: 7,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 8,
       column: 3,
       medSquare: 7,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 9,
       column: 1,
       medSquare: 7,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 9,
       column: 2,
       medSquare: 7,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 9,
       column: 3,
       medSquare: 7,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
   ]
 },
@@ -500,63 +564,72 @@ squares: [
       column: 4,
       medSquare: 8,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 7,
       column: 5,
       medSquare: 8,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 7,
       column: 6,
       medSquare: 8,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 8,
       column: 4,
       medSquare: 8,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 8,
       column: 5,
       medSquare: 8,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 8,
       column: 6,
       medSquare: 8,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 9,
       column: 4,
       medSquare: 8,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 9,
       column: 5,
       medSquare: 8,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 9,
       column: 6,
       medSquare: 8,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
   ]
 },
@@ -568,63 +641,72 @@ squares: [
       column: 7,
       medSquare: 9,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 7,
       column: 8,
       medSquare: 9,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 7,
       column: 9,
       medSquare: 9,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 8,
       column: 7,
       medSquare: 9,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 8,
       column: 8,
       medSquare: 9,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 8,
       column: 9,
       medSquare: 9,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 9,
       column: 7,
       medSquare: 9,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 9,
       column: 8,
       medSquare: 9,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
     {
       row: 9,
       column: 9,
       medSquare: 9,
       notes: [],
-      value: null
+      value: '.',
+      static: false,
     },
   ]
 },

@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 // components
 
 import FullBoard from './components/FullBoard';
 import Menu from './components/Menu';
-import {BoardInt} from './model'
+import { BoardInt, blankGame } from './model'
 
-import {games} from './games/easy';
+import { games } from './games/easy';
 
 import { populateGame } from './modules/gameFunctions';
 
@@ -33,14 +33,15 @@ sudoku state looks like:
 
 function App() {
 
-const [currentGame, setCurrentGame] = useState<BoardInt>(populateGame(games[0]));
+  const [currentGame, setCurrentGame] = useState<BoardInt>(populateGame(games[0]));
 
   return (
+
     <div className="App">
       <header className="App-header">
       </header>
         <Menu />
-        <FullBoard currentGame = {currentGame} setCurrentGame = {setCurrentGame}/>
+        <FullBoard currentGame={currentGame} setCurrentGame={setCurrentGame} />
     </div>
   );
 }

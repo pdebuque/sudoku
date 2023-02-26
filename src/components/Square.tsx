@@ -17,28 +17,33 @@ const Square: React.FC<Props> = (props) => {
   } = props
 
   const [focus, setFocus] = useState<boolean>(false);
-  const [inputValue, setInputValue] = useState<number | undefined>(undefined)
+  const [inputValue, setInputValue] = useState<number | string>('')
 
   const handleClick: (e: any) => void = (e) => {
     console.log('clicked square: ', square)
     setFocus(true)
   }
 
+  const handleDisable: () => void = () => {
+    console.log('cannot click this square')
+  }
+
   const handleSubmit: (e: any) => void = (e) => {
     e.preventDefault();
     console.log('submit');
     setFocus(false);
-    
   }
+
+
 
   return (
     <div
       className='square'
-      onClick={handleClick}
+      onClick={square.static ? handleDisable : handleClick}
     >
       {
         focus ?
-          <form onSubmit = {handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <input
               className='square-input'
               type='number'
@@ -47,7 +52,7 @@ const Square: React.FC<Props> = (props) => {
             />
           </form>
           :
-          square.value
+          square.static ? <b>{square.value}</b> : ''
       }
     </div>
   )

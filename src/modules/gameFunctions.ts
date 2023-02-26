@@ -33,11 +33,12 @@ export const squareIsCorrect = (square: SquareInt) => {
 ]
 */
 
-export const populateGame = (game: (number|null)[][]) => {
+export const populateGame = (game: (number|string)[][]) => {
   let outputGame: BoardInt = blankGame;
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
       outputGame[i].squares[j].value = game[i][j]
+      if (game[i][j]!== '.') outputGame[i].squares[j].static=true
     }
   }
   console.log('outputGame:', outputGame)
