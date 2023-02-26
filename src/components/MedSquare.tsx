@@ -12,17 +12,17 @@ interface Props {
 
 const MedSquare: React.FC<Props> = (props) => {
 
-const {
-  medSquare,
-  currentGame,
-  // setCurrentGame
-} = props
+  const {
+    medSquare,
+    currentGame,
+    // setCurrentGame
+  } = props
 
   return (
-    <div className = 'medSquare'>
-      {medSquare.squares.map((square,index)=>{
-        return(
-          <Square square={square} currentGame = {currentGame} key = {index}/>
+    <div className='medSquare'>
+      {medSquare.map((square, index) => {
+        return (
+          <Square square={square} currentGame={currentGame} key={index} />
         )
       })}
     </div>

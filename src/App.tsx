@@ -34,7 +34,7 @@ function App() {
           difficulty: response.data.newboard.grids[0].difficulty,
           board: response.data.newboard.grids[0].value
         };
-        console.log('got puzzle', response.data)
+        // console.log('got puzzle', response.data)
         dispatch(setGame(puzzle))
       }
       )

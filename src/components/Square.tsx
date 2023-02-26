@@ -3,7 +3,9 @@ import React, { useState } from 'react'
 import { SquareInt, BoardInt } from '../model'
 
 import { useAppDispatch, useAppSelector } from '../hooks';
-import {saveValue} from '../redux/reducers/game.reducer'
+import { saveValue, checkSquareById } from '../redux/reducers/game.reducer';
+
+import NumberSelect from './NumberSelect'
 
 interface Props {
   square: SquareInt;
@@ -24,6 +26,7 @@ const Square: React.FC<Props> = (props) => {
 
   const [focus, setFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<number | string>('')
+  const [menuOpen, setMenuOpen] = useState<boolean>(false)
 
   const handleClick: (e: any) => void = (e) => {
     // console.log('clicked square: ', square)
@@ -39,24 +42,35 @@ const Square: React.FC<Props> = (props) => {
     e.preventDefault();
     console.log('submit');
     if (inputValue === 0) setInputValue('');
-    dispatch(saveValue({...square, value: inputValue}))
+    dispatch(saveValue({ ...square, value: inputValue }))
+    dispatch(checkSquareById(square.id))
   }
 
   const displayNumber = (square: SquareInt) => {
     if (square.static) return <b>{square.value}</b>
-    if (square.value==='.' || square.value===0) return ''
+    if (square.value===0) return ''
     return square.value
+  }
+
+  const squareStyle = {
+    color: square.correct ? 'black' : 'red'
   }
 
   return (
     <div
       className='square'
       onClick={square.static ? handleDisable : handleClick}
+      style={squareStyle}
     >
+      {/* <p>{JSON.stringify(square.correct)}</p> */}
+      {/* {JSON.stringify(square.id)} */}
+      {/* {JSON.stringify(square.row)} */}
+      {/* {JSON.stringify([square.row, square.column])} */}
       {
         focus ?
           <form onSubmit={handleSubmit}>
             <input
+              style = {squareStyle}
               className='square-input'
               type='number'
               value={inputValue}

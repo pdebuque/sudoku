@@ -11,11 +11,18 @@ interface Square {
 interface Board []
 */
 
-import { BoardInt, MedSquareInt, SquareInt, blankGame } from '../model'
+import { BoardInt, SquareInt, blankGame } from '../model'
 import type { Game } from '../model'
 
-export const checkSquare = (square: SquareInt) => {
-
+export const checkSquare = (game: BoardInt, square: SquareInt) => {
+  const row = game.board[square.row-1]
+  const flatBoard = game.board.flat()
+  const block = flatBoard.filter(unit=>unit.medSquare===square.medSquare)
+  const column = flatBoard.filter(unit=>unit.column===square.column)
+  const squaresToCheck = [...row,...block,...column];
+  for (let unit of squaresToCheck) {
+    if (unit.value === square.value) square.correct = false
+  }
 }
 
 
