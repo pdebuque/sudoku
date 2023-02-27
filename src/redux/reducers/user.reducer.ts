@@ -20,12 +20,15 @@ const userSlice = createSlice({
     incrementScore(state) {
       state.score = state.score + 1
     },
-    toggleEdit(state) {
+    toggleNotes(state) {
       state.notesMode = !state.notesMode
+    },
+    setNotesFalse(state) {
+      state.notesMode = false
     }
   }
 })
 
-export const { incrementScore, toggleEdit } = userSlice.actions;
+export const { incrementScore, toggleNotes, setNotesFalse } = userSlice.actions;
 
 export default userSlice.reducer;

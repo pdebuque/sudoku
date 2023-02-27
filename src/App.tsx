@@ -15,6 +15,7 @@ import Header from './components/Header'
 import { BoardInt, blankGame } from './model'
 import type { Game } from './model'
 import { games } from './games/easy';
+import { setNotesFalse } from './redux/reducers/user.reducer';
 // import { populateGame } from './modules/gameFunctions';
 
 
@@ -23,6 +24,18 @@ function App() {
   const { game, complete } = useAppSelector((state) => state.game)
 
   const dispatch = useAppDispatch()
+
+  // escape key listener to exit notes mode
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.code === 'Escape') {
+        dispatch(setNotesFalse())
+      }
+    }
+    document.addEventListener('keydown', handleEscape);
+
+    return () => document.removeEventListener('keydown', handleEscape)
+  })
 
   const handleClick = () => {
     dispatch(setGame(games[0]))
@@ -42,12 +55,14 @@ function App() {
       .catch(err => console.log('could not get puzzle', err))
   }
 
+
+
   return (
 
     <div className="App">
       {/* <p>{JSON.stringify(game.board.flat().map(square => square.value))}</p>
       <p>{JSON.stringify(complete)}</p> */}
-      <Header/>
+      <Header />
       <Menu />
       <button onClick={handleClick}>set game</button>
       <button onClick={handleRandom}>generate random</button>

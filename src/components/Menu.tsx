@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useAppDispatch, useAppSelector } from '../hooks'
 
-import { toggleEdit } from '../redux/reducers/user.reducer'
+import { toggleNotes } from '../redux/reducers/user.reducer'
 
 const Menu: React.FC = () => {
 
@@ -10,7 +10,7 @@ const Menu: React.FC = () => {
   const { notesMode } = useAppSelector((state) => state.user)
 
   const handlePencil = () => {
-    dispatch(toggleEdit())
+    dispatch(toggleNotes())
   }
 
   return (

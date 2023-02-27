@@ -11,7 +11,7 @@ import { SquareInt, BoardInt } from '../model'
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { saveValue, checkSquareById, checkComplete } from '../redux/reducers/game.reducer';
 
-import { toggleEdit } from '../redux/reducers/user.reducer'
+import { toggleNotes } from '../redux/reducers/user.reducer'
 
 
 interface Props {
