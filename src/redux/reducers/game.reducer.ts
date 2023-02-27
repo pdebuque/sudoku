@@ -17,7 +17,7 @@ const initialState: InitialState = {
 
 const reformatGame: (game: Game) => Game = (game) => {
   const { board, difficulty } = game
-  console.log('board:', board)
+  // console.log('board:', board)
   const newBoard = [];
 
   for (let i = 0; i < 7; i += 3) {
@@ -25,7 +25,7 @@ const reformatGame: (game: Game) => Game = (game) => {
       newBoard.push([board[i][j], board[i][j + 1], board[i][j + 2], board[i + 1][j], board[i + 1][j + 1], board[i + 1][j + 2], board[i + 2][j], board[i + 2][j + 1], board[i + 2][j + 2]])
     }
   }
-  console.log('newBoard', newBoard)
+  // console.log('newBoard', newBoard)
 
   const output: Game = {
     difficulty: difficulty,
@@ -105,9 +105,12 @@ const gameSlice = createSlice({
     },
     checkComplete(state) {
       const flatBoard = state.game.board.flat();
-      const correctArr = flatBoard.map(square=>square.correct)
-      const valueArr = flatBoard.map(square=>square.value)
-      if (!correctArr.includes(false) && !valueArr.includes(0)) console.log('puzzle complete')
+      const correctArr = flatBoard.map(square => square.correct)
+      const valueArr = flatBoard.map(square => square.value)
+      if (!correctArr.includes(false) && !valueArr.includes(0)) { 
+        console.log('puzzle complete') 
+        state.complete=true
+      }
       else console.log('puzzle not complete')
     }
 
