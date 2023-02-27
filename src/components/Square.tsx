@@ -87,7 +87,7 @@ const Square: React.FC<Props> = (props) => {
           :
           displayNumber(square)
       }
-      <NumberSelect menuOpen = {menuOpen} setMenuOpen={setMenuOpen} notes = {square.notes}/>
+      {/* <NumberSelect menuOpen = {menuOpen} setMenuOpen={setMenuOpen} notes = {square.notes}/> */}
     </div>
   )
 }
