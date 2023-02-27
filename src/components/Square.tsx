@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { SquareInt, BoardInt } from '../model'
 
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { saveValue, checkSquareById } from '../redux/reducers/game.reducer';
+import { saveValue, checkSquareById, checkComplete } from '../redux/reducers/game.reducer';
 
 import NumberSelect from './NumberSelect'
 
@@ -44,11 +44,12 @@ const Square: React.FC<Props> = (props) => {
     if (inputValue === 0) setInputValue('');
     dispatch(saveValue({ ...square, value: inputValue }))
     dispatch(checkSquareById(square.id))
+    dispatch(checkComplete())
   }
 
   const displayNumber = (square: SquareInt) => {
     if (square.static) return <b>{square.value}</b>
-    if (square.value===0) return ''
+    if (square.value === 0) return ''
     return square.value
   }
 
@@ -70,7 +71,7 @@ const Square: React.FC<Props> = (props) => {
         focus ?
           <form onSubmit={handleSubmit}>
             <input
-              style = {squareStyle}
+              style={squareStyle}
               className='square-input'
               type='number'
               value={inputValue}
