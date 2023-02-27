@@ -5,7 +5,8 @@ import { SquareInt, BoardInt } from '../model'
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { saveValue, checkSquareById, checkComplete } from '../redux/reducers/game.reducer';
 
-import NumberSelect from './NumberSelect'
+import NumberSelect from './NumberSelect';
+import SquareNotes from './SquareNotes';
 
 interface Props {
   square: SquareInt;
@@ -49,7 +50,7 @@ const Square: React.FC<Props> = (props) => {
 
   const displayNumber = (square: SquareInt) => {
     if (square.static) return <b>{square.value}</b>
-    if (square.value === 0) return ''
+    if (square.value === 0) return <SquareNotes notes = {square.notes}/>
     return square.value
   }
 

@@ -1,5 +1,5 @@
 :root {
-  --board-size: 25em;
+  --board-size: 35em;
   --square-size: calc(var(--board-size)/9);
   --number-size: 1em;
 }
@@ -45,7 +45,24 @@
 }
 
 input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.square-notes {
+  display: grid;
+  width: 95%;
+  height: 95%;
+  grid-template-columns: repeat(3, 1fr)
+}
+
+.square-notes p {
+  color: rgb(145, 145, 145);
+  font-size: .8em;
+  margin: 0.1em;
+}
+
+.hidden {
+  color: white !important;
+}
