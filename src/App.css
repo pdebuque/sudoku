@@ -64,5 +64,35 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .hidden {
-  color: white !important;
+  visibility: hidden;
+}
+
+.number-select {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  position: absolute;
+  /* transform: translate(20%, 50%); */
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid rgba(128, 128, 128, 0.319);
+  border-radius: 4px;
+  box-shadow: 1px 2px 1px 1px rgba(102, 102, 155, 0.2);
+}
+
+.number-select button {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8em;
+  background: none;
+  border: none;
+}
+
+.number-select button:hover {
+  color: black;
+  background-color:rgb(241, 241, 241);
+  cursor: pointer;
 }

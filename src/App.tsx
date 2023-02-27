@@ -9,6 +9,7 @@ import axios from 'axios'
 // components
 import FullBoard from './components/FullBoard';
 import Menu from './components/Menu';
+import Header from './components/Header'
 
 // internal
 import { BoardInt, blankGame } from './model'
@@ -46,8 +47,7 @@ function App() {
     <div className="App">
       {/* <p>{JSON.stringify(game.board.flat().map(square => square.value))}</p>
       <p>{JSON.stringify(complete)}</p> */}
-      <header className="App-header">
-      </header>
+      <Header/>
       <Menu />
       <button onClick={handleClick}>set game</button>
       <button onClick={handleRandom}>generate random</button>

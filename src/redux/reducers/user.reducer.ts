@@ -3,12 +3,12 @@ import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
 // import {populateGame} from '../../modules/gameFunctions'
 
 type InitialState = {
-  editMode: boolean,
+  notesMode: boolean,
   score: number,
 }
 
 const initialState: InitialState = {
-  editMode: false,
+  notesMode: false,
   score: 0
 }
 
@@ -21,7 +21,7 @@ const userSlice = createSlice({
       state.score = state.score + 1
     },
     toggleEdit(state) {
-      state.editMode = !state.editMode
+      state.notesMode = !state.notesMode
     }
   }
 })

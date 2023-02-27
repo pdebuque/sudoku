@@ -1,5 +1,5 @@
 const game0 = {
-  difficulty: 'easy',
+  difficulty: 'Easy',
   board: [
     [0, 1, 0, 6, 0, 2, 0, 0, 4],
     [7, 0, 0, 4, 1, 0, 9, 2, 0],
@@ -14,7 +14,7 @@ const game0 = {
 }
 
 const game1 = {
-  difficulty: 'easy',
+  difficulty: 'Easy',
   board: [
     [1, 6, 9, 4, 3, 7, 2, 8, 5],
     [3, 7, 4, 8, 5, 2, 1, 6, 9],

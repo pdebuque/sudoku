@@ -112,11 +112,23 @@ const gameSlice = createSlice({
         state.complete = true
       }
       else console.log('puzzle not complete')
+    },
+    // action: square id, note number
+    updateNotes(state, action: PayloadAction<{squareId: number, note: number}>) {
+      const {
+        squareId,
+        note
+      } = action.payload;
+
+      const flatBoard = state.game.board.flat();
+      const squareToChange = flatBoard.filter(el=>el.id===squareId)[0];
+      if (squareToChange.notes.includes(note)) squareToChange.notes = squareToChange.notes.filter(num=>num!==note);
+      else squareToChange.notes.push(note)
     }
 
   }
 })
 
-export const { saveValue, setGame, checkSquareById, checkComplete } = gameSlice.actions;
+export const { saveValue, setGame, checkSquareById, checkComplete, updateNotes } = gameSlice.actions;
 
 export default gameSlice.reducer;

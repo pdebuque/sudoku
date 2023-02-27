@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useAppDispatch } from '../hooks';
+import { SquareInt } from '../model';
+import { updateNotes } from '../redux/reducers/game.reducer';
 
 interface Props {
   menuOpen: boolean;
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
-  notes: number[]
+  square: SquareInt;
+  mousePos: { x: number, y: number }
 }
 
 const NumberSelect: React.FC<Props> = (props) => {
@@ -11,12 +16,42 @@ const NumberSelect: React.FC<Props> = (props) => {
   const {
     menuOpen,
     setMenuOpen,
-    notes
+    square,
+    mousePos
   } = props
 
+  const dispatch = useAppDispatch();
+
   const menuStyle: React.CSSProperties = {
-    position: 'absolute',
-    
+    visibility: menuOpen ? 'visible' : 'hidden',
+    top: mousePos.y,
+    left: mousePos.x
+  }
+
+  const numberStyle: React.CSSProperties = {
+    color: 'rgba(61, 61, 63, 0.589)'
+  }
+
+  const noteStyle: React.CSSProperties = {
+    color: 'blue'
+  }
+
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  // escape key handler
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.code === 'Escape') {
+        setMenuOpen(false)
+      }
+    }
+    document.addEventListener('keydown', handleEscape);
+
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [])
+
+  const addNote = (num: number) => {
+    dispatch(updateNotes({squareId: square.id, note: num}))
   }
 
   return (
@@ -24,7 +59,14 @@ const NumberSelect: React.FC<Props> = (props) => {
       className='number-select'
       style={menuStyle}
     >
-      hello
+      {numbers.map((number, i) => {
+        return (
+          <button
+            key={i}
+            style={square.notes.includes(number) ? noteStyle : numberStyle}
+            onClick={() => addNote(number)}>{number}</button>
+        )
+      })}
     </div>
   )
 }

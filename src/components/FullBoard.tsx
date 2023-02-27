@@ -18,14 +18,14 @@ interface Props {
 
 const FullBoard: React.FC<Props> = (props) => {
 
-  const { editMode } = useAppSelector(state => state.user)
+  const { notesMode } = useAppSelector(state => state.user)
 
   const {
     currentGame,
     // setCurrentGame
   } = props
 
-  const cursorStyle = editMode ? { cursor: 'url(pencil16.png) 0 100, move' } : { cursor: 'default' }
+  const cursorStyle = notesMode ? { cursor: 'url(pencil16.png) 0 100, move' } : { cursor: 'default' }
 
   return (
     <div
