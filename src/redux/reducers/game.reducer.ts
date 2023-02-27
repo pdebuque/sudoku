@@ -114,15 +114,15 @@ const gameSlice = createSlice({
       else console.log('puzzle not complete')
     },
     // action: square id, note number
-    updateNotes(state, action: PayloadAction<{squareId: number, note: number}>) {
+    updateNotes(state, action: PayloadAction<{ squareId: number, note: number }>) {
       const {
         squareId,
         note
       } = action.payload;
 
       const flatBoard = state.game.board.flat();
-      const squareToChange = flatBoard.filter(el=>el.id===squareId)[0];
-      if (squareToChange.notes.includes(note)) squareToChange.notes = squareToChange.notes.filter(num=>num!==note);
+      const squareToChange = flatBoard.filter(el => el.id === squareId)[0];
+      if (squareToChange.notes.includes(note)) squareToChange.notes = squareToChange.notes.filter(num => num !== note);
       else squareToChange.notes.push(note)
     }
 

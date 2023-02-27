@@ -14,9 +14,9 @@ const SquareNotes: React.FC<Props> = (props) => {
 
   return (
     <div className='square-notes'>
-      {numbers.map(number => {
+      {numbers.map((number,i) => {
         return (
-          <p className={notes.includes(number) ? '' : 'hidden'}>{number}</p>
+          <p key = {i} className={notes.includes(number) ? '' : 'hidden'}>{number}</p>
         )
       })
       }

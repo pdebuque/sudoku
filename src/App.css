@@ -96,3 +96,15 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color:rgb(241, 241, 241);
   cursor: pointer;
 }
+
+.status-board {
+  display: flex;
+  justify-content: space-around;
+  width: var(--board-size);
+  margin: 1em auto;
+}
+
+.status-board p {
+  font-size: 3em;
+  margin: 0
+}

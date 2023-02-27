@@ -38,20 +38,28 @@ const NumberSelect: React.FC<Props> = (props) => {
 
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-  // escape key handler
+  // escape key handler, num keys handler
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
         setMenuOpen(false)
       }
     }
+
+    const handleNum = (e: KeyboardEvent) => {
+      // console.log('key pressed', e.code)
+      switch (e.code) {
+        case 'Digit1': console.log('1');
+      }
+    }
     document.addEventListener('keydown', handleEscape);
+    document.addEventListener('keydown', handleNum)
 
     return () => document.removeEventListener('keydown', handleEscape)
   }, [])
 
   const addNote = (num: number) => {
-    dispatch(updateNotes({squareId: square.id, note: num}))
+    dispatch(updateNotes({ squareId: square.id, note: num }))
   }
 
   return (

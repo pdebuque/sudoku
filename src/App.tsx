@@ -15,7 +15,8 @@ import Header from './components/Header'
 import { BoardInt, blankGame } from './model'
 import type { Game } from './model'
 import { games } from './games/easy';
-import { setNotesFalse } from './redux/reducers/user.reducer';
+import { setNotesFalse, setNotesTrue } from './redux/reducers/user.reducer';
+import StatusBoard from './components/StatusBoard';
 // import { populateGame } from './modules/gameFunctions';
 
 
@@ -26,19 +27,27 @@ function App() {
   const dispatch = useAppDispatch()
 
   // escape key listener to exit notes mode
+  // space key listener to enter notes mode
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
         dispatch(setNotesFalse())
       }
     }
+    const handleSpace = (e:KeyboardEvent) =>{
+      if (e.code ==='Space') {
+        dispatch(setNotesTrue())
+      }
+    }
+
     document.addEventListener('keydown', handleEscape);
+    document.addEventListener('keydown', handleSpace)
 
     return () => document.removeEventListener('keydown', handleEscape)
   })
 
   const handleClick = () => {
-    dispatch(setGame(games[0]))
+    dispatch(setGame(games[1]))
   }
 
   const handleRandom = () => {
@@ -69,6 +78,7 @@ function App() {
       {complete && <div>puzzle complete!</div>}
       <p>{game.difficulty}</p>
       <FullBoard currentGame={game} />
+      <StatusBoard />
     </div>
   );
 }

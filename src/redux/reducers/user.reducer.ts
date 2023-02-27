@@ -11,7 +11,7 @@ const initialState: InitialState = {
   notesMode: false,
   score: 0
 }
-
+ 
 
 const userSlice = createSlice({
   name: 'game',
@@ -25,10 +25,13 @@ const userSlice = createSlice({
     },
     setNotesFalse(state) {
       state.notesMode = false
+    },
+    setNotesTrue(state) {
+      state.notesMode = true
     }
   }
 })
 
-export const { incrementScore, toggleNotes, setNotesFalse } = userSlice.actions;
+export const { incrementScore, toggleNotes, setNotesFalse, setNotesTrue } = userSlice.actions;
 
 export default userSlice.reducer;
