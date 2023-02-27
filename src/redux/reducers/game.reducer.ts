@@ -2,6 +2,7 @@ import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
 import { blankGame, BoardInt, SquareInt } from '../../model';
 import type { Game } from '../../model';
 
+
 // import {populateGame} from '../../modules/gameFunctions'
 
 type InitialState = {
@@ -13,7 +14,6 @@ const initialState: InitialState = {
   game: blankGame,
   complete: false,
 }
-
 
 const reformatGame: (game: Game) => Game = (game) => {
   const { board, difficulty } = game
@@ -107,9 +107,9 @@ const gameSlice = createSlice({
       const flatBoard = state.game.board.flat();
       const correctArr = flatBoard.map(square => square.correct)
       const valueArr = flatBoard.map(square => square.value)
-      if (!correctArr.includes(false) && !valueArr.includes(0)) { 
-        console.log('puzzle complete') 
-        state.complete=true
+      if (!correctArr.includes(false) && !valueArr.includes(0)) {
+        console.log('puzzle complete')
+        state.complete = true
       }
       else console.log('puzzle not complete')
     }

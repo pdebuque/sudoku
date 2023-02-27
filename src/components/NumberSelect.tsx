@@ -1,19 +1,31 @@
-import React from 'react'
+import React from 'react';
 
 interface Props {
   menuOpen: boolean;
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+  notes: number[]
 }
 
 const NumberSelect: React.FC<Props> = (props) => {
 
   const {
     menuOpen,
-    setMenuOpen
+    setMenuOpen,
+    notes
   } = props
 
+  const menuStyle: React.CSSProperties = {
+    position: 'absolute',
+    
+  }
+
   return (
-    <div>number select</div>
+    <div
+      className='number-select'
+      style={menuStyle}
+    >
+      hello
+    </div>
   )
 }
 

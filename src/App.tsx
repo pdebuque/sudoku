@@ -24,7 +24,7 @@ function App() {
   const dispatch = useAppDispatch()
 
   const handleClick = () => {
-    dispatch(setGame(games[1]))
+    dispatch(setGame(games[0]))
   }
 
   const handleRandom = () => {

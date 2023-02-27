@@ -5,6 +5,8 @@ import { SquareInt, BoardInt } from '../model'
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { saveValue, checkSquareById, checkComplete } from '../redux/reducers/game.reducer';
 
+import { toggleEdit } from '../redux/reducers/user.reducer'
+
 import NumberSelect from './NumberSelect';
 import SquareNotes from './SquareNotes';
 
@@ -23,7 +25,9 @@ const Square: React.FC<Props> = (props) => {
   } = props
 
   const dispatch = useAppDispatch();
-  const { game } = useAppSelector((state) => state.game)
+  const { game } = useAppSelector((state) => state.game);
+
+  const { editMode } = useAppSelector((state) => state.user);
 
   const [focus, setFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<number | string>('')
@@ -31,7 +35,8 @@ const Square: React.FC<Props> = (props) => {
 
   const handleClick: (e: any) => void = (e) => {
     // console.log('clicked square: ', square)
-    setFocus(true)
+    if (editMode) setMenuOpen(true)
+    else setFocus(true)
   }
 
   const handleDisable: () => void = () => {
@@ -50,11 +55,11 @@ const Square: React.FC<Props> = (props) => {
 
   const displayNumber = (square: SquareInt) => {
     if (square.static) return <b>{square.value}</b>
-    if (square.value === 0) return <SquareNotes notes = {square.notes}/>
+    if (square.value === 0) return <SquareNotes notes={square.notes} />
     return square.value
   }
 
-  const squareStyle = {
+  const squareStyle: React.CSSProperties = {
     color: square.correct ? 'black' : 'red'
   }
 
@@ -82,6 +87,7 @@ const Square: React.FC<Props> = (props) => {
           :
           displayNumber(square)
       }
+      <NumberSelect menuOpen = {menuOpen} setMenuOpen={setMenuOpen} notes = {square.notes}/>
     </div>
   )
 }
