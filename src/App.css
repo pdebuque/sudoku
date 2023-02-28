@@ -8,6 +8,26 @@
   text-align: center;
 }
 
+nav {
+  display: flex;
+  width: var(--board-size);
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav button {
+  margin: 0 .5em;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(195, 195, 251);
+}
+
+nav button:hover {
+  cursor: pointer;
+  background-color: rgb(174, 174, 246);
+}
+
 .board {
   border: 2px solid black;
   margin: auto;

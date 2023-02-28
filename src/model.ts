@@ -36,7 +36,7 @@ export const blankGame: BoardInt = {
         medSquare: 1,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -46,7 +46,7 @@ export const blankGame: BoardInt = {
         medSquare: 1,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -56,7 +56,7 @@ export const blankGame: BoardInt = {
         medSquare: 1,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -66,7 +66,7 @@ export const blankGame: BoardInt = {
         medSquare: 1,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -76,7 +76,7 @@ export const blankGame: BoardInt = {
         medSquare: 1,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -86,7 +86,7 @@ export const blankGame: BoardInt = {
         medSquare: 1,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -96,7 +96,7 @@ export const blankGame: BoardInt = {
         medSquare: 1,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -106,7 +106,7 @@ export const blankGame: BoardInt = {
         medSquare: 1,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -116,7 +116,7 @@ export const blankGame: BoardInt = {
         medSquare: 1,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
     ],
@@ -128,7 +128,7 @@ export const blankGame: BoardInt = {
         medSquare: 2,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -138,7 +138,7 @@ export const blankGame: BoardInt = {
         medSquare: 2,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -148,7 +148,7 @@ export const blankGame: BoardInt = {
         medSquare: 2,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -158,7 +158,7 @@ export const blankGame: BoardInt = {
         medSquare: 2,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -168,7 +168,7 @@ export const blankGame: BoardInt = {
         medSquare: 2,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -178,7 +178,7 @@ export const blankGame: BoardInt = {
         medSquare: 2,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -188,7 +188,7 @@ export const blankGame: BoardInt = {
         medSquare: 2,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -198,7 +198,7 @@ export const blankGame: BoardInt = {
         medSquare: 2,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -208,7 +208,7 @@ export const blankGame: BoardInt = {
         medSquare: 2,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
     ],
@@ -220,7 +220,7 @@ export const blankGame: BoardInt = {
         medSquare: 3,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -230,7 +230,7 @@ export const blankGame: BoardInt = {
         medSquare: 3,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -240,7 +240,7 @@ export const blankGame: BoardInt = {
         medSquare: 3,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -250,7 +250,7 @@ export const blankGame: BoardInt = {
         medSquare: 3,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -260,7 +260,7 @@ export const blankGame: BoardInt = {
         medSquare: 3,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -270,7 +270,7 @@ export const blankGame: BoardInt = {
         medSquare: 3,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -280,7 +280,7 @@ export const blankGame: BoardInt = {
         medSquare: 3,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -290,7 +290,7 @@ export const blankGame: BoardInt = {
         medSquare: 3,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -300,7 +300,7 @@ export const blankGame: BoardInt = {
         medSquare: 3,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
     ],
@@ -312,7 +312,7 @@ export const blankGame: BoardInt = {
         medSquare: 4,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -322,7 +322,7 @@ export const blankGame: BoardInt = {
         medSquare: 4,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -332,7 +332,7 @@ export const blankGame: BoardInt = {
         medSquare: 4,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -342,7 +342,7 @@ export const blankGame: BoardInt = {
         medSquare: 4,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -352,7 +352,7 @@ export const blankGame: BoardInt = {
         medSquare: 4,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -362,7 +362,7 @@ export const blankGame: BoardInt = {
         medSquare: 4,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -372,7 +372,7 @@ export const blankGame: BoardInt = {
         medSquare: 4,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -382,7 +382,7 @@ export const blankGame: BoardInt = {
         medSquare: 4,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -392,7 +392,7 @@ export const blankGame: BoardInt = {
         medSquare: 4,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
     ],
@@ -404,8 +404,8 @@ export const blankGame: BoardInt = {
         medSquare: 5,
         notes: [],
         value: 0,
+        static: true,
         correct: true,
-        static: false,
       },
       {
         id: 38,
@@ -414,7 +414,7 @@ export const blankGame: BoardInt = {
         medSquare: 5,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -424,9 +424,9 @@ export const blankGame: BoardInt = {
         medSquare: 5,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
-      }, 
+      },
       {
         id: 40,
         row: 5,
@@ -434,7 +434,7 @@ export const blankGame: BoardInt = {
         medSquare: 5,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -444,7 +444,7 @@ export const blankGame: BoardInt = {
         medSquare: 5,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -454,7 +454,7 @@ export const blankGame: BoardInt = {
         medSquare: 5,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -464,8 +464,8 @@ export const blankGame: BoardInt = {
         medSquare: 5,
         notes: [],
         value: 0,
+        static: true,
         correct: true,
-        static: false,
       },
       {
         id: 44,
@@ -474,7 +474,7 @@ export const blankGame: BoardInt = {
         medSquare: 5,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -484,7 +484,7 @@ export const blankGame: BoardInt = {
         medSquare: 5,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
     ],
@@ -496,7 +496,7 @@ export const blankGame: BoardInt = {
         medSquare: 6,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -506,7 +506,7 @@ export const blankGame: BoardInt = {
         medSquare: 6,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -516,7 +516,7 @@ export const blankGame: BoardInt = {
         medSquare: 6,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -526,7 +526,7 @@ export const blankGame: BoardInt = {
         medSquare: 6,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -536,7 +536,7 @@ export const blankGame: BoardInt = {
         medSquare: 6,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -546,7 +546,7 @@ export const blankGame: BoardInt = {
         medSquare: 6,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -556,7 +556,7 @@ export const blankGame: BoardInt = {
         medSquare: 6,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -566,7 +566,7 @@ export const blankGame: BoardInt = {
         medSquare: 6,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -576,7 +576,7 @@ export const blankGame: BoardInt = {
         medSquare: 6,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
     ],
@@ -588,7 +588,7 @@ export const blankGame: BoardInt = {
         medSquare: 7,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -598,7 +598,7 @@ export const blankGame: BoardInt = {
         medSquare: 7,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -608,7 +608,7 @@ export const blankGame: BoardInt = {
         medSquare: 7,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -618,7 +618,7 @@ export const blankGame: BoardInt = {
         medSquare: 7,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -628,7 +628,7 @@ export const blankGame: BoardInt = {
         medSquare: 7,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -638,7 +638,7 @@ export const blankGame: BoardInt = {
         medSquare: 7,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -648,7 +648,7 @@ export const blankGame: BoardInt = {
         medSquare: 7,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -658,7 +658,7 @@ export const blankGame: BoardInt = {
         medSquare: 7,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -668,7 +668,7 @@ export const blankGame: BoardInt = {
         medSquare: 7,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
     ],
@@ -680,7 +680,7 @@ export const blankGame: BoardInt = {
         medSquare: 8,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -690,7 +690,7 @@ export const blankGame: BoardInt = {
         medSquare: 8,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -700,7 +700,7 @@ export const blankGame: BoardInt = {
         medSquare: 8,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -710,7 +710,7 @@ export const blankGame: BoardInt = {
         medSquare: 8,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -720,7 +720,7 @@ export const blankGame: BoardInt = {
         medSquare: 8,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
         correct: true,
       },
       {
@@ -730,8 +730,8 @@ export const blankGame: BoardInt = {
         medSquare: 8,
         notes: [],
         value: 0,
+        static: true,
         correct: true,
-        static: false,
       },
       {
         id: 70,
@@ -740,8 +740,8 @@ export const blankGame: BoardInt = {
         medSquare: 8,
         notes: [],
         value: 0,
+        static: true,
         correct: true,
-        static: false,
       },
       {
         id: 71,
@@ -749,9 +749,9 @@ export const blankGame: BoardInt = {
         column: 5,
         medSquare: 8,
         notes: [],
-        correct: true,
         value: 0,
-        static: false,
+        static: true,
+        correct: true,
       },
       {
         id: 72,
@@ -760,8 +760,8 @@ export const blankGame: BoardInt = {
         medSquare: 8,
         notes: [],
         value: 0,
+        static: true,
         correct: true,
-        static: false,
       },
     ],
     [
@@ -771,9 +771,9 @@ export const blankGame: BoardInt = {
         column: 7,
         medSquare: 9,
         notes: [],
-        correct: true,
         value: 0,
-        static: false,
+        static: true,
+        correct: true,
       },
       {
         id: 74,
@@ -781,19 +781,19 @@ export const blankGame: BoardInt = {
         column: 8,
         medSquare: 9,
         notes: [],
-        correct: true,
         value: 0,
-        static: false,
+        static: true,
+        correct: true,
       },
       {
         id: 75,
         row: 7,
         column: 9,
         medSquare: 9,
-        correct: true,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
+        correct: true,
       },
       {
         id: 76,
@@ -801,19 +801,19 @@ export const blankGame: BoardInt = {
         column: 7,
         medSquare: 9,
         notes: [],
-        correct: true,
         value: 0,
-        static: false,
+        static: true,
+        correct: true,
       },
       {
         id: 77,
         row: 8,
         column: 8,
-        correct: true,
         medSquare: 9,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
+        correct: true,
       },
       {
         id: 78,
@@ -822,8 +822,8 @@ export const blankGame: BoardInt = {
         medSquare: 9,
         notes: [],
         value: 0,
+        static: true,
         correct: true,
-        static: false,
       },
       {
         id: 79,
@@ -832,18 +832,18 @@ export const blankGame: BoardInt = {
         medSquare: 9,
         notes: [],
         value: 0,
+        static: true,
         correct: true,
-        static: false,
       },
       {
         id: 80,
         row: 9,
-        correct: true,
         column: 8,
         medSquare: 9,
         notes: [],
         value: 0,
-        static: false,
+        static: true,
+        correct: true,
       },
       {
         id: 81,
@@ -852,11 +852,11 @@ export const blankGame: BoardInt = {
         medSquare: 9,
         notes: [],
         value: 0,
+        static: true,
         correct: true,
-        static: false,
       },
     ]
-    
+
   ]
 }
 

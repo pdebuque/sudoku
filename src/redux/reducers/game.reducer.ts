@@ -63,6 +63,7 @@ const gameSlice = createSlice({
       for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
           state.game.board[i][j].value = adjGame.board[i][j];
+          state.game.board[i][j].notes = [];
           state.game.board[i][j].static = adjGame.board[i][j] === 0 ? false : true
           state.game.board[i][j].correct = true
         }

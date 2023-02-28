@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useAppDispatch } from '../hooks';
 import { SquareInt } from '../model';
@@ -22,6 +22,8 @@ const NumberSelect: React.FC<Props> = (props) => {
 
   const dispatch = useAppDispatch();
 
+  const [focus, setFocus] = useState<boolean>(false)
+
   const menuStyle: React.CSSProperties = {
     visibility: menuOpen ? 'visible' : 'hidden',
     top: mousePos.y,
@@ -41,6 +43,7 @@ const NumberSelect: React.FC<Props> = (props) => {
   // escape key handler, num keys handler
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
+      if (e.repeat) { return }
       if (e.code === 'Escape') {
         setMenuOpen(false)
       }
@@ -48,14 +51,45 @@ const NumberSelect: React.FC<Props> = (props) => {
 
     const handleNum = (e: KeyboardEvent) => {
       // console.log('key pressed', e.code)
+      if (e.repeat) { return }
       switch (e.code) {
-        case 'Digit1': console.log('1');
+        case 'Digit1':
+          dispatch(updateNotes({ squareId: square.id, note: 1 }));
+          return;
+        case 'Digit2':
+          dispatch(updateNotes({ squareId: square.id, note: 2 }));
+          return;
+        case 'Digit3':
+          dispatch(updateNotes({ squareId: square.id, note: 3 }));
+          return;
+        case 'Digit4':
+          dispatch(updateNotes({ squareId: square.id, note: 4 }));
+          return;
+        case 'Digit5':
+          dispatch(updateNotes({ squareId: square.id, note: 5 }));
+          return;
+        case 'Digit6':
+          dispatch(updateNotes({ squareId: square.id, note: 6 }));
+          return;
+        case 'Digit7':
+          dispatch(updateNotes({ squareId: square.id, note: 7 }));
+          return;
+        case 'Digit8':
+          dispatch(updateNotes({ squareId: square.id, note: 8 }));
+          return;
+        case 'Digit9':
+          dispatch(updateNotes({ squareId: square.id, note: 9 }));
+          return;
+        default: return
       }
     }
     document.addEventListener('keydown', handleEscape);
-    document.addEventListener('keydown', handleNum)
+    // document.addEventListener('keydown', handleNum)
 
-    return () => document.removeEventListener('keydown', handleEscape)
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.removeEventListener('keydown', handleNum)
+    }
   }, [])
 
   const addNote = (num: number) => {
@@ -72,7 +106,10 @@ const NumberSelect: React.FC<Props> = (props) => {
           <button
             key={i}
             style={square.notes.includes(number) ? noteStyle : numberStyle}
-            onClick={() => addNote(number)}>{number}</button>
+            onClick={() => {
+
+              addNote(number)
+            }}>{number}</button>
         )
       })}
     </div>

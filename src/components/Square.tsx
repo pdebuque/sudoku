@@ -75,6 +75,7 @@ useEffect(()=>{
   }
 
   const displayNumber = (square: SquareInt) => {
+    if (square.value === 0 && square.static) return ''
     if (square.static) return <b>{square.value}</b>
     if (square.value === 0) return <SquareNotes notes={square.notes} />
     return square.value
