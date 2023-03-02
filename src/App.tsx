@@ -12,11 +12,8 @@ import Menu from './components/Menu';
 import Header from './components/Header'
 
 // internal
-import { BoardInt, blankGame } from './model'
-import type { Game } from './model'
-import { games } from './games/easy';
-import { setNotesFalse, setNotesTrue, toggleNotes } from './redux/reducers/user.reducer';
 import StatusBoard from './components/StatusBoard';
+import Footer from './components/Footer'
 // import { populateGame } from './modules/gameFunctions';
 
 
@@ -28,7 +25,7 @@ function App() {
 
   // escape key listener to exit notes mode
   // space key listener to enter notes mode
-  
+
   return (
 
     <div className="App">
@@ -38,6 +35,7 @@ function App() {
       <Menu />
       <FullBoard currentGame={game} />
       <StatusBoard />
+      <Footer />
     </div>
   );
 }
