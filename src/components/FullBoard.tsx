@@ -10,8 +10,6 @@ import NumberSelect from './NumberSelect'
 // internal
 import { useAppSelector } from '../hooks';
 
-import pencilCursor from '../pencil32.png'
-
 interface Props {
   currentGame: BoardInt;
   // setCurrentGame: React.Dispatch<any>;
@@ -42,7 +40,7 @@ const FullBoard: React.FC<Props> = (props) => {
       <NumberSelect 
         open = {focus.open}
         mousePos = {focus.mousePos}
-        square = {focus.square}
+        squareId = {focus.squareId}
       />
     </div>
   )

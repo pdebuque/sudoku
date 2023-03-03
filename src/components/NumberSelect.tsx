@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { useAppDispatch } from '../hooks';
+import { useAppDispatch, useAppSelector } from '../hooks';
 import { SquareInt } from '../model';
 import { updateNotes } from '../redux/reducers/game.reducer';
 
@@ -8,7 +8,7 @@ import { setFocusSquare } from '../redux/reducers/user.reducer';
 
 interface Props {
   open: boolean;
-  square: SquareInt;
+  squareId: number;
   mousePos: { x: number, y: number }
 }
 
@@ -16,13 +16,15 @@ const NumberSelect: React.FC<Props> = (props) => {
 
   const {
     open,
-    square,
+    squareId,
     mousePos
   } = props
 
   const dispatch = useAppDispatch();
 
-  const [focus, setFocus] = useState<boolean>(false)
+  const thisSquare: SquareInt = useAppSelector(state=>state.game.game.board.flat().filter(el=>el.id === squareId)[0]);
+
+  // const [focus, setFocus] = useState<boolean>(false)
 
   const menuStyle: React.CSSProperties = {
     visibility: open ? 'visible' : 'hidden',
@@ -45,7 +47,7 @@ const NumberSelect: React.FC<Props> = (props) => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.repeat) { return }
       if (e.code === 'Escape') {
-        dispatch(setFocusSquare({square: square, mousePos: mousePos, open: false}))
+        dispatch(setFocusSquare({squareId: squareId, mousePos: mousePos, open: false}))
       }
     }
 
@@ -54,31 +56,31 @@ const NumberSelect: React.FC<Props> = (props) => {
       if (e.repeat) { return }
       switch (e.code) {
         case 'Digit1':
-          dispatch(updateNotes({ squareId: square.id, note: 1 }));
+          dispatch(updateNotes({ squareId: squareId, note: 1 }));
           return;
         case 'Digit2':
-          dispatch(updateNotes({ squareId: square.id, note: 2 }));
+          dispatch(updateNotes({ squareId: squareId, note: 2 }));
           return;
         case 'Digit3':
-          dispatch(updateNotes({ squareId: square.id, note: 3 }));
+          dispatch(updateNotes({ squareId: squareId, note: 3 }));
           return;
         case 'Digit4':
-          dispatch(updateNotes({ squareId: square.id, note: 4 }));
+          dispatch(updateNotes({ squareId: squareId, note: 4 }));
           return;
         case 'Digit5':
-          dispatch(updateNotes({ squareId: square.id, note: 5 }));
+          dispatch(updateNotes({ squareId: squareId, note: 5 }));
           return;
         case 'Digit6':
-          dispatch(updateNotes({ squareId: square.id, note: 6 }));
+          dispatch(updateNotes({ squareId: squareId, note: 6 }));
           return;
         case 'Digit7':
-          dispatch(updateNotes({ squareId: square.id, note: 7 }));
+          dispatch(updateNotes({ squareId: squareId, note: 7 }));
           return;
         case 'Digit8':
-          dispatch(updateNotes({ squareId: square.id, note: 8 }));
+          dispatch(updateNotes({ squareId: squareId, note: 8 }));
           return;
         case 'Digit9':
-          dispatch(updateNotes({ squareId: square.id, note: 9 }));
+          dispatch(updateNotes({ squareId: squareId, note: 9 }));
           return;
         default: return
       }
@@ -93,7 +95,7 @@ const NumberSelect: React.FC<Props> = (props) => {
   }, [])
 
   const addNote = (num: number) => {
-    dispatch(updateNotes({ squareId: square.id, note: num }))
+    dispatch(updateNotes({ squareId: squareId, note: num }))
   }
 
   return (
@@ -101,11 +103,12 @@ const NumberSelect: React.FC<Props> = (props) => {
       className='number-select'
       style={menuStyle}
     >
-      {numbers.map((number, i) => {
+      {/* {JSON.stringify(thisSquare)} */}
+      {[1,2,3,4,5,6,7,8,9].map((number, i) => {
         return (
           <button
             key={i}
-            style={square.notes.includes(number) ? noteStyle : numberStyle}
+            style={thisSquare?.notes.includes(number) ? noteStyle : numberStyle}
             onClick={() => {
 
               addNote(number)

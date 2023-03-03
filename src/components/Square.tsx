@@ -35,8 +35,8 @@ const Square: React.FC<Props> = (props) => {
 
   const [focus, setFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<number | string>('')
-  const [menuOpen, setMenuOpen] = useState<boolean>(false)
-  const [mousePos, setMousePos] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
+  // const [menuOpen, setMenuOpen] = useState<boolean>(false)
+  // const [mousePos, setMousePos] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
 
   // escape key handler to close focus
   useEffect(() => {
@@ -56,10 +56,10 @@ const Square: React.FC<Props> = (props) => {
     console.log('event: ', e)
     if (notesMode) {
 
-      setMousePos({ x: e.clientX, y: e.clientY })
-      setMenuOpen(true);
+      // setMousePos({ x: e.clientX, y: e.clientY })
+      // setMenuOpen(true);
 
-      dispatch(setFocusSquare({square: square, mousePos: {x: e.clientX, y: e.clientY}, open: true}))
+      dispatch(setFocusSquare({squareId: square.id, mousePos: {x: e.clientX, y: e.clientY}, open: true}))
     }
     else setFocus(true)
   }

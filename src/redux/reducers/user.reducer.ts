@@ -5,7 +5,7 @@ import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
 import { SquareInt, blankSquare } from '../../model';
 
 interface Focus {
-  square: SquareInt;
+  squareId: number;
   mousePos: {x: number, y: number};
   open: boolean
 }
@@ -19,7 +19,7 @@ type InitialState = {
 const initialState: InitialState = {
   notesMode: false,
   score: 0,
-  focus: {square: blankSquare, mousePos: {x: 0, y: 0}, open: false}
+  focus: {squareId: 0, mousePos: {x: 0, y: 0}, open: false}
 };
 
 const userSlice = createSlice({
