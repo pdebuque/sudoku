@@ -31,7 +31,8 @@ const Square: React.FC<Props> = (props) => {
 
   const dispatch = useAppDispatch();
   const { game } = useAppSelector((state) => state.game);
-  const { notesMode } = useAppSelector((state) => state.user);
+  const { notesMode, focusSquare } = useAppSelector((state) => state.user);
+
 
   const [focus, setFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<number | string>('')
@@ -61,7 +62,10 @@ const Square: React.FC<Props> = (props) => {
 
       dispatch(setFocusSquare({squareId: square.id, mousePos: {x: e.clientX, y: e.clientY}, open: true}))
     }
-    else setFocus(true)
+    else {
+      dispatch(setFocusSquare({squareId: square.id, mousePos: {x:0, y: 0}, open: false}));
+      setFocus(true)
+    }
   }
 
   const handleDisable: () => void = () => {
@@ -80,10 +84,12 @@ const Square: React.FC<Props> = (props) => {
 
   const displayNumber = (square: SquareInt) => {
     if (square.value === 0 && square.static) return ''
-    if (square.static) return <b>{square.value}</b>
+    if (square.static) return <p className='static-square'>{square.value}</p>
     if (square.value === 0) return <SquareNotes notes={square.notes} />
-    return square.value
+    return <p className = 'dynamic-square'>{square.value}</p>
   }
+
+  
 
   const squareStyle: React.CSSProperties = {
     color: square.correct ? 'black' : 'red'

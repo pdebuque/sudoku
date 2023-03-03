@@ -17,7 +17,7 @@ interface Props {
 
 const FullBoard: React.FC<Props> = (props) => {
 
-  const { notesMode, focus } = useAppSelector(state => state.user)
+  const { notesMode, focusSquare } = useAppSelector(state => state.user)
 
   const {
     currentGame,
@@ -38,9 +38,9 @@ const FullBoard: React.FC<Props> = (props) => {
       })
       }
       <NumberSelect 
-        open = {focus.open}
-        mousePos = {focus.mousePos}
-        squareId = {focus.squareId}
+        open = {focusSquare.open}
+        mousePos = {focusSquare.mousePos}
+        squareId = {focusSquare.squareId}
       />
     </div>
   )

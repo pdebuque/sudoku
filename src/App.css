@@ -1,7 +1,11 @@
 :root {
-  --board-size: 35em;
+  --board-size: 35rem;
   --square-size: calc(var(--board-size)/9);
-  --number-size: 1em;
+  --number-size: calc(var(--square-size)*.7);
+  --theme-color: rgb(195, 195, 251);
+  --theme-light: rgb(236, 236, 254);
+  --theme-dark: rgb(180, 180, 255);
+
 }
 
 .App {
@@ -31,12 +35,12 @@ nav button {
   margin: 0 .5em;
   border: none;
   border-radius: 4px;
-  background-color: rgb(195, 195, 251);
+  background-color: var(--theme-color);
 }
 
 nav button:hover {
   cursor: pointer;
-  background-color: rgb(174, 174, 246);
+  background-color: var(--theme-dark);
 }
 
 .board {
@@ -65,6 +69,16 @@ nav button:hover {
   font-size: var(--number-size);
 }
 
+.square:hover {
+  cursor: pointer;
+  background-color: var(--theme-light);
+}
+
+/* .square p {
+  margin: 0;
+  padding: 0;
+} */
+
 .square-input {
   margin: auto;
   width: calc(var(--square-size)*.9);
@@ -73,12 +87,24 @@ nav button:hover {
   box-sizing: border-box;
   font-size: var(--number-size);
   text-align: center;
+  font-weight: 200;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.static-square {
+  font-weight: 400;
+}
+
+.dynamic-square {
+  font-weight: 200;
 }
 
 .square-notes {
@@ -90,7 +116,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .square-notes p {
   color: rgb(145, 145, 145);
-  font-size: .8em;
+  font-size: calc(var(--number-size)/3.5);
   margin: 0.1em;
 }
 

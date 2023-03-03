@@ -13,13 +13,13 @@ interface Focus {
 type InitialState = {
   notesMode: boolean,
   score: number,
-  focus: Focus
+  focusSquare: Focus
 };
 
 const initialState: InitialState = {
   notesMode: false,
   score: 0,
-  focus: {squareId: 0, mousePos: {x: 0, y: 0}, open: false}
+  focusSquare: {squareId: 0, mousePos: {x: 0, y: 0}, open: false}
 };
 
 const userSlice = createSlice({
@@ -39,7 +39,7 @@ const userSlice = createSlice({
       state.notesMode = true
     },
     setFocusSquare(state,action: PayloadAction<Focus>){
-      state.focus = action.payload
+      state.focusSquare = action.payload
     }
   }
 })
