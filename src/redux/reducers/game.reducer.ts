@@ -5,13 +5,21 @@ import type { Game } from '../../model';
 
 // import {populateGame} from '../../modules/gameFunctions'
 
+interface Focus {
+  squareId: number;
+  mousePos: {x: number, y: number};
+  open: boolean;
+}
+
 type InitialState = {
   game: BoardInt,
+  focus: Focus,
   complete: boolean
 }
 
 const initialState: InitialState = {
   game: blankGame,
+  focus: {squareId: 0, mousePos: {x: 0, y: 0}, open: false},
   complete: false,
 }
 
@@ -39,22 +47,6 @@ const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    /* to set the game, expect a game array: 
-    [
-      [---row---],
-      [---row---],
-      etc.
-    ];
-    need to reformat to
-    
-    [
-      [---block---],
-      [---block---],
-      etc.
-    ]
-    
-    
-    */
     setGame(state, action: PayloadAction<Game>) {
       const adjGame = reformatGame(action.payload)
       console.log('adjGame: ', adjGame)
@@ -125,11 +117,21 @@ const gameSlice = createSlice({
       const squareToChange = flatBoard.filter(el => el.id === squareId)[0];
       if (squareToChange.notes.includes(note)) squareToChange.notes = squareToChange.notes.filter(num => num !== note);
       else squareToChange.notes.push(note)
+    },
+    // receives an id, focuses square with matching id
+    setFocus(state, action: PayloadAction<Focus>) {
+      state.focus.squareId = action.payload.squareId;
+      state.focus.mousePos = action.payload.mousePos;
+      const flatBoard = state.game.board.flat();
+      const square = flatBoard.filter(el => el.id === action.payload.squareId)[0];
+      square.focus = true;
+      for (let el of flatBoard) {
+        if (el.column === square.column || el.row === square.row || el.medSquare === square.medSquare) el.highlight = true
+      }
     }
-
   }
 })
 
-export const { saveValue, setGame, checkSquareById, checkComplete, updateNotes } = gameSlice.actions;
+export const { saveValue, setGame, checkSquareById, checkComplete, updateNotes, setFocus } = gameSlice.actions;
 
 export default gameSlice.reducer;

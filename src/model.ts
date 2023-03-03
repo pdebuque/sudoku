@@ -8,6 +8,7 @@ export interface SquareInt {
   static: boolean;
   correct: boolean;
   highlight: boolean;
+  focus: boolean;
 }
 
 export type MedSquareInt = Array<SquareInt>
@@ -36,6 +37,7 @@ export const blankSquare: SquareInt = {
   static: true,
   correct: true,
   highlight: false,
+  focus: false,
 }
 
 export const blankGame: BoardInt = {
@@ -51,7 +53,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 2,
@@ -62,7 +66,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 3,
@@ -73,7 +79,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 4,
@@ -84,7 +92,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 5,
@@ -95,7 +105,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 6,
@@ -106,7 +118,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 7,
@@ -117,7 +131,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 8,
@@ -128,7 +144,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 9,
@@ -139,7 +157,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
     ],
     [
@@ -152,7 +172,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 11,
@@ -163,7 +185,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 12,
@@ -174,7 +198,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 13,
@@ -185,7 +211,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 14,
@@ -196,7 +224,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 15,
@@ -207,7 +237,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 16,
@@ -218,7 +250,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 17,
@@ -229,7 +263,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 18,
@@ -240,7 +276,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
     ],
     [
@@ -253,7 +291,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 20,
@@ -264,7 +304,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 21,
@@ -275,7 +317,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 22,
@@ -286,7 +330,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 23,
@@ -297,7 +343,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 24,
@@ -308,7 +356,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 25,
@@ -319,7 +369,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 26,
@@ -330,7 +382,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 27,
@@ -341,7 +395,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
     ],
     [
@@ -354,7 +410,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 29,
@@ -365,7 +423,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 30,
@@ -376,7 +436,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 31,
@@ -387,7 +449,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 32,
@@ -398,7 +462,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 33,
@@ -409,7 +475,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 34,
@@ -420,7 +488,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 35,
@@ -431,7 +501,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 36,
@@ -442,7 +514,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
     ],
     [
@@ -455,7 +529,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 38,
@@ -466,7 +542,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 39,
@@ -477,7 +555,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 40,
@@ -488,7 +568,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 41,
@@ -499,7 +581,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 42,
@@ -510,7 +594,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 43,
@@ -521,7 +607,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 44,
@@ -532,7 +620,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 45,
@@ -543,7 +633,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
     ],
     [
@@ -556,7 +648,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 47,
@@ -567,7 +661,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 48,
@@ -578,7 +674,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 49,
@@ -589,7 +687,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 50,
@@ -600,7 +700,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 51,
@@ -611,7 +713,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 52,
@@ -622,7 +726,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 53,
@@ -633,7 +739,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 54,
@@ -644,7 +752,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
     ],
     [
@@ -657,7 +767,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 56,
@@ -668,7 +780,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 57,
@@ -679,7 +793,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 58,
@@ -690,7 +806,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 59,
@@ -701,7 +819,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 60,
@@ -712,7 +832,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 61,
@@ -723,7 +845,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 62,
@@ -734,7 +858,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 63,
@@ -745,7 +871,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
     ],
     [
@@ -758,7 +886,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 65,
@@ -769,7 +899,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 66,
@@ -780,7 +912,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 67,
@@ -791,7 +925,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 68,
@@ -802,7 +938,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 69,
@@ -813,7 +951,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 70,
@@ -824,7 +964,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 71,
@@ -835,7 +977,9 @@ export const blankGame: BoardInt = {
         value: 0,
         correct: true,
         static: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 72,
@@ -846,7 +990,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
     ],
     [
@@ -859,7 +1005,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 74,
@@ -870,7 +1018,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 75,
@@ -881,7 +1031,9 @@ export const blankGame: BoardInt = {
         value: 0,
         correct: true,
         static: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 76,
@@ -892,7 +1044,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 77,
@@ -903,7 +1057,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 78,
@@ -914,7 +1070,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 79,
@@ -925,7 +1083,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 80,
@@ -936,7 +1096,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
       {
         id: 81,
@@ -947,7 +1109,9 @@ export const blankGame: BoardInt = {
         value: 0,
         static: true,
         correct: true,
+
         highlight: false,
+        focus: false,
       },
     ]
   ]

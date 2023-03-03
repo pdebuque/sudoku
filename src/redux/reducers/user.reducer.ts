@@ -6,7 +6,7 @@ import { SquareInt, blankSquare } from '../../model';
 
 interface Focus {
   squareId: number;
-  mousePos: {x: number, y: number};
+  mousePos: { x: number, y: number };
   open: boolean
 }
 
@@ -19,7 +19,7 @@ type InitialState = {
 const initialState: InitialState = {
   notesMode: false,
   score: 0,
-  focusSquare: {squareId: 0, mousePos: {x: 0, y: 0}, open: false}
+  focusSquare: { squareId: 0, mousePos: { x: 0, y: 0 }, open: false }
 };
 
 const userSlice = createSlice({
@@ -38,7 +38,7 @@ const userSlice = createSlice({
     setNotesTrue(state) {
       state.notesMode = true
     },
-    setFocusSquare(state,action: PayloadAction<Focus>){
+    setFocusSquare(state, action: PayloadAction<Focus>) {
       state.focusSquare = action.payload
     }
   }

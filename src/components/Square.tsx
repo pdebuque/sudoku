@@ -9,15 +9,14 @@ import SquareNotes from './SquareNotes';
 // internal
 import { SquareInt, BoardInt } from '../model'
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { saveValue, checkSquareById, checkComplete } from '../redux/reducers/game.reducer';
+import { saveValue, checkSquareById, checkComplete, setFocus } from '../redux/reducers/game.reducer';
 
-import { toggleNotes, setFocusSquare } from '../redux/reducers/user.reducer'
+import { toggleNotes } from '../redux/reducers/user.reducer'
 
 
 interface Props {
   square: SquareInt;
   currentGame: BoardInt;
-  // setCurrentGame: React.Dispatch<any>;
 }
 
 const Square: React.FC<Props> = (props) => {
@@ -25,7 +24,6 @@ const Square: React.FC<Props> = (props) => {
   const {
     square,
     currentGame,
-    // setCurrentGame
   } = props
 
 
@@ -34,16 +32,25 @@ const Square: React.FC<Props> = (props) => {
   const { notesMode, focusSquare } = useAppSelector((state) => state.user);
 
 
-  const [focus, setFocus] = useState<boolean>(false);
+  // const [focus, setFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<number | string>('')
   // const [menuOpen, setMenuOpen] = useState<boolean>(false)
   // const [mousePos, setMousePos] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
+
+  const displayNumber = (square: SquareInt) => {
+    if (square.value === 0 && square.static) return ''
+    if (square.static) return <p className='static-square'>{square.value}</p>
+    if (square.value === 0) return <SquareNotes notes={square.notes} />
+    return <p className='dynamic-square'>{square.value}</p>
+  }
+
+  //* ============== functions ===================
 
   // escape key handler to close focus
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
-        setFocus(false)
+        dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, open: false }))
       }
     }
     document.addEventListener('keydown', handleEscape);
@@ -60,11 +67,10 @@ const Square: React.FC<Props> = (props) => {
       // setMousePos({ x: e.clientX, y: e.clientY })
       // setMenuOpen(true);
 
-      dispatch(setFocusSquare({squareId: square.id, mousePos: {x: e.clientX, y: e.clientY}, open: true}))
+      dispatch(setFocus({ squareId: square.id, mousePos: { x: e.clientX, y: e.clientY }, open: true }))
     }
     else {
-      dispatch(setFocusSquare({squareId: square.id, mousePos: {x:0, y: 0}, open: false}));
-      setFocus(true)
+      dispatch(setFocus({ squareId: square.id, mousePos: { x: 0, y: 0 }, open: false }));
     }
   }
 
@@ -73,7 +79,7 @@ const Square: React.FC<Props> = (props) => {
   }
 
   const handleSubmit: (e: any) => void = (e) => {
-    setFocus(false);
+    dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, open: false }));
     e.preventDefault();
     console.log('submit');
     if (inputValue === 0) setInputValue('');
@@ -82,14 +88,8 @@ const Square: React.FC<Props> = (props) => {
     dispatch(checkComplete())
   }
 
-  const displayNumber = (square: SquareInt) => {
-    if (square.value === 0 && square.static) return ''
-    if (square.static) return <p className='static-square'>{square.value}</p>
-    if (square.value === 0) return <SquareNotes notes={square.notes} />
-    return <p className = 'dynamic-square'>{square.value}</p>
-  }
 
-  
+  //* ============= styles =====================
 
   const squareStyle: React.CSSProperties = {
     color: square.correct ? 'black' : 'red'
@@ -106,7 +106,7 @@ const Square: React.FC<Props> = (props) => {
       {/* {JSON.stringify(square.row)} */}
       {/* {JSON.stringify([square.row, square.column])} */}
       {
-        focus ?
+        square.focus ?
           <form onSubmit={handleSubmit}>
             <input
               style={squareStyle}
