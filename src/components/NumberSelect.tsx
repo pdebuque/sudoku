@@ -4,9 +4,10 @@ import { useAppDispatch } from '../hooks';
 import { SquareInt } from '../model';
 import { updateNotes } from '../redux/reducers/game.reducer';
 
+import { setFocusSquare } from '../redux/reducers/user.reducer';
+
 interface Props {
-  menuOpen: boolean;
-  setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+  open: boolean;
   square: SquareInt;
   mousePos: { x: number, y: number }
 }
@@ -14,8 +15,7 @@ interface Props {
 const NumberSelect: React.FC<Props> = (props) => {
 
   const {
-    menuOpen,
-    setMenuOpen,
+    open,
     square,
     mousePos
   } = props
@@ -25,7 +25,7 @@ const NumberSelect: React.FC<Props> = (props) => {
   const [focus, setFocus] = useState<boolean>(false)
 
   const menuStyle: React.CSSProperties = {
-    visibility: menuOpen ? 'visible' : 'hidden',
+    visibility: open ? 'visible' : 'hidden',
     top: mousePos.y,
     left: mousePos.x
   }
@@ -45,7 +45,7 @@ const NumberSelect: React.FC<Props> = (props) => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.repeat) { return }
       if (e.code === 'Escape') {
-        setMenuOpen(false)
+        dispatch(setFocusSquare({square: square, mousePos: mousePos, open: false}))
       }
     }
 

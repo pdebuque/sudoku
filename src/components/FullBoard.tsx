@@ -4,7 +4,8 @@ import React from 'react'
 import { BoardInt, MedSquareInt, SquareInt } from '../model'
 
 // components
-import MedSquare from './MedSquare'
+import MedSquare from './MedSquare';
+import NumberSelect from './NumberSelect'
 
 // internal
 import { useAppSelector } from '../hooks';
@@ -18,7 +19,7 @@ interface Props {
 
 const FullBoard: React.FC<Props> = (props) => {
 
-  const { notesMode } = useAppSelector(state => state.user)
+  const { notesMode, focus } = useAppSelector(state => state.user)
 
   const {
     currentGame,
@@ -38,6 +39,11 @@ const FullBoard: React.FC<Props> = (props) => {
         )
       })
       }
+      <NumberSelect 
+        open = {focus.open}
+        mousePos = {focus.mousePos}
+        square = {focus.square}
+      />
     </div>
   )
 }

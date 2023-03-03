@@ -25,6 +25,17 @@ export type Game = {
 
 // board is array of medSquare arrays
 
+export const blankSquare: SquareInt = {
+  id: 0,
+  row: 0,
+  column: 0,
+  medSquare: 0,
+  notes: [],
+  value: 0,
+  static: true,
+  correct: true,
+}
+
 export const blankGame: BoardInt = {
   difficulty: 'Easy',
   board: [

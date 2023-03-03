@@ -8,6 +8,17 @@
   text-align: center;
 }
 
+header {
+  background-color: rgb(195, 195, 251);
+  padding: 0.01em 0 .5em 0;
+  width: calc(var(--board-size)*1.2);
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
 nav {
   display: flex;
   width: var(--board-size);
@@ -89,7 +100,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .number-select {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   position: absolute;
   /* transform: translate(20%, 50%); */
   width: 50px;
@@ -113,7 +124,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .number-select button:hover {
   color: black;
-  background-color:rgb(241, 241, 241);
+  background-color: rgb(241, 241, 241);
   cursor: pointer;
 }
 

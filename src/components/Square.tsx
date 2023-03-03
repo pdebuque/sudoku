@@ -11,7 +11,7 @@ import { SquareInt, BoardInt } from '../model'
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { saveValue, checkSquareById, checkComplete } from '../redux/reducers/game.reducer';
 
-import { toggleNotes } from '../redux/reducers/user.reducer'
+import { toggleNotes, setFocusSquare } from '../redux/reducers/user.reducer'
 
 
 interface Props {
@@ -36,26 +36,30 @@ const Square: React.FC<Props> = (props) => {
   const [focus, setFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<number | string>('')
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
-  const [mousePos, setMousePos] = useState<{x: number, y: number}>({x: 0, y: 0})
+  const [mousePos, setMousePos] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
 
   // escape key handler to close focus
-useEffect(()=>{
-  const handleEscape = (e: KeyboardEvent) => {
-    if (e.code === 'Escape') {
-      setFocus(false)
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.code === 'Escape') {
+        setFocus(false)
+      }
     }
-  }
-  document.addEventListener('keydown', handleEscape);
+    document.addEventListener('keydown', handleEscape);
 
-  return () => document.removeEventListener('keydown', handleEscape)
-},[])
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [])
 
 
   const handleClick: (e: any) => void = (e) => {
-    // console.log('clicked square: ', square)
+    console.log('clicked square: ', square)
+    console.log('event: ', e)
     if (notesMode) {
-      setMousePos({x: e.clientX, y: e.clientY})
-      setMenuOpen(true)
+
+      setMousePos({ x: e.clientX, y: e.clientY })
+      setMenuOpen(true);
+
+      dispatch(setFocusSquare({square: square, mousePos: {x: e.clientX, y: e.clientY}, open: true}))
     }
     else setFocus(true)
   }
@@ -109,12 +113,12 @@ useEffect(()=>{
           :
           displayNumber(square)
       }
-      <NumberSelect
-        menuOpen={menuOpen} 
-        setMenuOpen={setMenuOpen} 
-        square= {square}
-        mousePos = {mousePos}
-        />
+      {/* <NumberSelect
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+        square={square}
+        mousePos={mousePos}
+      /> */}
     </div>
   )
 }
