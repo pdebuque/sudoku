@@ -6,23 +6,24 @@ import { updateNotes } from '../redux/reducers/game.reducer';
 
 import { setFocusSquare } from '../redux/reducers/user.reducer';
 
-interface Props {
-  open: boolean;
-  squareId: number;
-  mousePos: { x: number, y: number }
-}
+// interface Props {
+//   open: boolean;
+//   squareId: number;
+//   mousePos: { x: number, y: number }
+// }
 
-const NumberSelect: React.FC<Props> = (props) => {
+const NumberSelect: React.FC = () => {
 
+  const { focus } = useAppSelector(state => state.game)
   const {
     open,
     squareId,
     mousePos
-  } = props
+  } = focus
 
   const dispatch = useAppDispatch();
 
-  const thisSquare: SquareInt = useAppSelector(state=>state.game.game.board.flat().filter(el=>el.id === squareId)[0]);
+  const thisSquare: SquareInt = useAppSelector(state => state.game.game.board.flat().filter(el => el.id === squareId)[0]);
 
   // const [focus, setFocus] = useState<boolean>(false)
 
@@ -47,7 +48,7 @@ const NumberSelect: React.FC<Props> = (props) => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.repeat) { return }
       if (e.code === 'Escape') {
-        dispatch(setFocusSquare({squareId: squareId, mousePos: mousePos, open: false}))
+        dispatch(setFocusSquare({ squareId: squareId, mousePos: mousePos, open: false }))
       }
     }
 
@@ -104,7 +105,7 @@ const NumberSelect: React.FC<Props> = (props) => {
       style={menuStyle}
     >
       {/* {JSON.stringify(thisSquare)} */}
-      {[1,2,3,4,5,6,7,8,9].map((number, i) => {
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((number, i) => {
         return (
           <button
             key={i}

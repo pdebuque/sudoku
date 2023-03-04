@@ -44,17 +44,14 @@ const FullBoard: React.FC<Props> = () => {
       className='board'
       style={cursorStyle}
     >
+      {/* {JSON.stringify(focus.open)}  */}
       {game.board.map((medSquare, index) => {
         return (
           <MedSquare currentGame={game} medSquare={medSquare} key={index} />
         )
       })
       }
-      <NumberSelect
-        open={focus.open}
-        mousePos={focus.mousePos}
-        squareId={focus.squareId}
-      />
+      <NumberSelect />
     </div>
   )
 }

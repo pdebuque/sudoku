@@ -100,10 +100,12 @@ const Square: React.FC<Props> = (props) => {
   const handleClick: (e: any) => void = (e) => {
     console.log('clicked square: ', square)
     console.log('event: ', e)
-    if (notesMode) { 
+    if (notesMode) {
+      console.log('clicked while in notes')
       dispatch(setFocus({ squareId: square.id, mousePos: { x: e.clientX, y: e.clientY }, open: true }))
     }
     else {
+      console.log('clicked while not in notes')
       dispatch(setFocus({ squareId: square.id, mousePos: { x: 0, y: 0 }, open: false }));
     }
   }
@@ -144,19 +146,28 @@ const Square: React.FC<Props> = (props) => {
     backgroundColor: square.focus ? 'rgb(180, 180, 255)' : square.highlight ? 'rgb(236, 236, 254)' : 'white'
   }
 
+  const hoverBackground = (square: SquareInt) => {
+    if (notesMode) {
+      if (square.static) return 'white'
+      return 'rgb(236, 236, 254)'
+    }
+    if (square.highlight) return 'rgb(195, 195, 251)'
+    return 'rgb(236,236, 25)'
+  }
+
   const hoverStyle: React.CSSProperties = {
     color: square.correct ? 'black' : 'red',
-    backgroundColor: notesMode ? 'rgb(236, 236, 254)' : square.highlight ? 'rgb(195, 195, 251)' : 'rgb(236, 236, 25)',
-    
+    backgroundColor: hoverBackground(square)
+
   }
 
   return (
     <div
       className='square'
       onClick={square.static ? handleDisable : handleClick}
-      style={hover ? hoverStyle : squareStyle }
-      onMouseEnter = {()=>setHover(true)}
-      onMouseLeave = {()=>setHover(false)}
+      style={hover ? hoverStyle : squareStyle}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
       {/* {JSON.stringify(square.focus)} */}
       {/* {JSON.stringify(hover)} */}

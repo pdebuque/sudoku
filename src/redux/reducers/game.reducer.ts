@@ -7,7 +7,7 @@ import type { Game } from '../../model';
 
 interface Focus {
   squareId: number;
-  mousePos: {x: number, y: number};
+  mousePos: { x: number, y: number };
   open: boolean;
 }
 
@@ -19,7 +19,7 @@ type InitialState = {
 
 const initialState: InitialState = {
   game: blankGame,
-  focus: {squareId: 0, mousePos: {x: 0, y: 0}, open: false},
+  focus: { squareId: 0, mousePos: { x: 0, y: 0 }, open: false },
   complete: false,
 }
 
@@ -48,6 +48,12 @@ const gameSlice = createSlice({
   initialState,
   reducers: {
     setGame(state, action: PayloadAction<Game>) {
+      const flatBoard = state.game.board.flat();
+      for (let square of flatBoard) {
+        square.highlight = false;
+        square.focus = false;
+      }
+
       const adjGame = reformatGame(action.payload)
       console.log('adjGame: ', adjGame)
 
@@ -120,20 +126,21 @@ const gameSlice = createSlice({
     },
     // receives an id, focuses square with matching id
     setFocus(state, action: PayloadAction<Focus>) {
-      state.focus.squareId = action.payload.squareId;
-      state.focus.mousePos = action.payload.mousePos;
+      state.focus = action.payload;
       const flatBoard = state.game.board.flat();
       const square = flatBoard.filter(el => el.id === action.payload.squareId)[0] || blankSquare;
       square.focus = true;
+
       for (let el of flatBoard) {
-        if (el.column === square.column || el.row === square.row || el.medSquare === square.medSquare || el.value === square.value && el.value !==0) el.highlight = true
-        else el.highlight=false
-        if (el.id !== square.id) el.focus=false
+        if (el.column === square.column || el.row === square.row || el.medSquare === square.medSquare || el.value === square.value && el.value !== 0) el.highlight = true
+        else el.highlight = false
+        if (el.id !== square.id) el.focus = false
       }
     },
     highlightNumbers(state, action: PayloadAction<number>) {
       const flatBoard = state.game.board.flat();
       for (let el of flatBoard) {
+        el.focus = false
         if (el.value === action.payload) el.highlight = true
         else el.highlight = false
       }

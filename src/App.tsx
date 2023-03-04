@@ -19,7 +19,7 @@ import Footer from './components/Footer'
 
 function App() {
 
-  const { game } = useAppSelector((state) => state.game)
+  const { game, focus } = useAppSelector((state) => state.game)
 
   const dispatch = useAppDispatch()
 
@@ -31,6 +31,7 @@ function App() {
     <div className="App">
       {/* <p>{JSON.stringify(game.board.flat().map(square => square.value))}</p>
       <p>{JSON.stringify(complete)}</p> */}
+      {JSON.stringify(focus)}
       <Header />
       <Menu />
       <FullBoard/>
