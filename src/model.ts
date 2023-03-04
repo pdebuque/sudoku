@@ -41,7 +41,7 @@ export const blankSquare: SquareInt = {
 }
 
 export const blankGame: BoardInt = {
-  difficulty: 'Easy',
+  difficulty: '--',
   board: [
     [
       {

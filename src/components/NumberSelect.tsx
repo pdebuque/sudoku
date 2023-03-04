@@ -4,7 +4,8 @@ import { useAppDispatch, useAppSelector } from '../hooks';
 import { SquareInt } from '../model';
 import { updateNotes } from '../redux/reducers/game.reducer';
 
-import { setFocusSquare } from '../redux/reducers/user.reducer';
+import { setFocus } from '../redux/reducers/game.reducer';
+
 
 // interface Props {
 //   open: boolean;
@@ -48,7 +49,7 @@ const NumberSelect: React.FC = () => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.repeat) { return }
       if (e.code === 'Escape') {
-        dispatch(setFocusSquare({ squareId: squareId, mousePos: mousePos, open: false }))
+        dispatch(setFocus({ squareId: squareId, mousePos: mousePos, open: false }))
       }
     }
 

@@ -9,9 +9,8 @@ import SquareNotes from './SquareNotes';
 // internal
 import { SquareInt, BoardInt } from '../model'
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { saveValue, checkSquareById, checkComplete, setFocus } from '../redux/reducers/game.reducer';
+import { saveValue, checkSquareById, checkComplete, setFocus, toggleNotes } from '../redux/reducers/game.reducer';
 
-import { toggleNotes } from '../redux/reducers/user.reducer'
 
 
 interface Props {
@@ -60,12 +59,12 @@ const Square: React.FC<Props> = (props) => {
     - notesMode => cursor: pencil; hover: no effect
     - !notesMode => cursor: pointer; hover: background-color
 
-  */
+  */ 
 
 
   const dispatch = useAppDispatch();
   // const { game } = useAppSelector((state) => state.game);
-  const { notesMode, focusSquare } = useAppSelector((state) => state.user);
+  const { notesMode } = useAppSelector((state) => state.game);
 
 
   // const [focus, setFocus] = useState<boolean>(false);

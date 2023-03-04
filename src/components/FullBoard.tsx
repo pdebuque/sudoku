@@ -20,8 +20,7 @@ const FullBoard: React.FC<Props> = () => {
 
   const dispatch = useAppDispatch();
 
-  const { notesMode } = useAppSelector(state => state.user);
-  const { focus, game } = useAppSelector(state => state.game)
+  const { focus, game, notesMode } = useAppSelector(state => state.game)
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {

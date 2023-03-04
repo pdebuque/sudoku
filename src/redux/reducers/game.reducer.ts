@@ -14,32 +14,29 @@ interface Focus {
 type InitialState = {
   game: BoardInt,
   focus: Focus,
-  complete: boolean
+  complete: boolean,
+  notesMode: boolean,
 }
 
 const initialState: InitialState = {
   game: blankGame,
   focus: { squareId: 0, mousePos: { x: 0, y: 0 }, open: false },
   complete: false,
+  notesMode: false,
 }
 
 const reformatGame: (game: Game) => Game = (game) => {
   const { board, difficulty } = game
-  // console.log('board:', board)
   const newBoard = [];
-
   for (let i = 0; i < 7; i += 3) {
     for (let j = 0; j < 7; j += 3) {
       newBoard.push([board[i][j], board[i][j + 1], board[i][j + 2], board[i + 1][j], board[i + 1][j + 1], board[i + 1][j + 2], board[i + 2][j], board[i + 2][j + 1], board[i + 2][j + 2]])
     }
   }
-  // console.log('newBoard', newBoard)
-
   const output: Game = {
     difficulty: difficulty,
     board: newBoard
   }
-
   return output
 }
 
@@ -53,6 +50,7 @@ const gameSlice = createSlice({
         square.highlight = false;
         square.focus = false;
       }
+      state.complete = false;
 
       const adjGame = reformatGame(action.payload)
       console.log('adjGame: ', adjGame)
@@ -144,10 +142,19 @@ const gameSlice = createSlice({
         if (el.value === action.payload) el.highlight = true
         else el.highlight = false
       }
-    }
+    },
+    toggleNotes(state) {
+      state.notesMode = !state.notesMode
+    },
+    setNotesFalse(state) {
+      state.notesMode = false
+    },
+    setNotesTrue(state) {
+      state.notesMode = true
+    },
   }
 })
 
-export const { saveValue, setGame, checkSquareById, checkComplete, updateNotes, setFocus, highlightNumbers } = gameSlice.actions;
+export const { saveValue, setGame, checkSquareById, checkComplete, updateNotes, setFocus, highlightNumbers, toggleNotes, setNotesFalse, setNotesTrue } = gameSlice.actions;
 
 export default gameSlice.reducer;

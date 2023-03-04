@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // libraries
-import axios from 'axios'
+import axios from 'axios';
+import { DateTime } from 'luxon';
 
 // internal
 import { useAppDispatch, useAppSelector } from '../hooks'
-import { toggleNotes, setNotesFalse } from '../redux/reducers/user.reducer'
-import { setFocus } from '../redux/reducers/game.reducer'
+import { setFocus, toggleNotes, setNotesFalse } from '../redux/reducers/game.reducer'
 import type { Game } from '../model'
 
 import { setGame } from '../redux/reducers/game.reducer';
@@ -14,7 +14,6 @@ import { setGame } from '../redux/reducers/game.reducer';
 const Menu: React.FC = () => {
 
   const dispatch = useAppDispatch()
-  const { notesMode } = useAppSelector((state) => state.user)
   const { game, complete } = useAppSelector(state => state.game)
 
   useEffect(() => {
@@ -43,6 +42,10 @@ const Menu: React.FC = () => {
     }
   }, [])
 
+  const timeZero = DateTime
+
+  const [time, setTime] = useState<DateTime>(DateTime.now());
+  const [timerOn, setTimerOn] = useState<boolean>(false);
 
   const handlePencil = () => {
     dispatch(toggleNotes())
@@ -56,21 +59,44 @@ const Menu: React.FC = () => {
           board: response.data.newboard.grids[0].value
         };
         console.log('got puzzle', response.data)
-        dispatch(setGame(puzzle))
+        dispatch(setGame(puzzle));
+        setTimerOn(true)
       }
       )
       .catch(err => console.log('could not get puzzle', err))
   }
 
+  // if (!complete && timerOn) {
+  //   const incrementTime = () =>{
+  //     console.log('time +1')
+  //     setTime(time+1)
+  //   }
+  //   setTimeout(incrementTime, 1000)
+  // }
+
+  const formatTime = (time: number) => {
+    const seconds = time % 60;
+    const minutes = time % 3600;
+    const hours = (time - seconds - (minutes * 60)) / 3600
+
+    const addZeroes = (str: number) => {
+      return String(str).length < 2 ? '0' + String(str) : String(str)
+    }
+    return `${addZeroes(hours)}:${addZeroes(minutes)}:${addZeroes(seconds)}`
+  }
 
   return (
-    <nav>
-      <div className='nav-buttons'>
-        <button onClick={handlePencil}>enter notes</button>
-        <button onClick={handleRandom}>new puzzle</button></div>
+    <div>
+      <nav>
+        <div className='nav-buttons'>
+          <button onClick={handlePencil}>enter notes</button>
+          <button onClick={handleRandom}>new puzzle</button></div>
+        {/* <p>time: {formatTime(time)}</p> */}
+        <p>time: {JSON.stringify('asdf')}</p>
+        <p>Game difficulty: {game.difficulty}</p>
+      </nav>
       {complete && <div>puzzle complete!</div>}
-      <p>Game difficulty: {game.difficulty}</p>
-    </nav>
+    </div>
   )
 }
 
