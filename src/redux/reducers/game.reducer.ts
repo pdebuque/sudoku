@@ -130,10 +130,17 @@ const gameSlice = createSlice({
         else el.highlight=false
         if (el.id !== square.id) el.focus=false
       }
+    },
+    highlightNumbers(state, action: PayloadAction<number>) {
+      const flatBoard = state.game.board.flat();
+      for (let el of flatBoard) {
+        if (el.value === action.payload) el.highlight = true
+        else el.highlight = false
+      }
     }
   }
 })
 
-export const { saveValue, setGame, checkSquareById, checkComplete, updateNotes, setFocus } = gameSlice.actions;
+export const { saveValue, setGame, checkSquareById, checkComplete, updateNotes, setFocus, highlightNumbers } = gameSlice.actions;
 
 export default gameSlice.reducer;

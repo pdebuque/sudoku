@@ -1,9 +1,12 @@
-import React from 'react'
-import { useAppSelector } from '../hooks'
+import React, { useDebugValue } from 'react'
+import { useAppSelector, useAppDispatch } from '../hooks';
+
+import { highlightNumbers } from '../redux/reducers/game.reducer';
 
 const StatusBoard = () => {
 
   const { game } = useAppSelector(state => state.game);
+  const dispatch = useAppDispatch()
 
   // board flattened and only containing square values and correctness
   const flatBoardDist = game.board.flat().map(square => { return { value: square.value, correct: square.correct } });
@@ -22,13 +25,16 @@ const StatusBoard = () => {
     <div className='status-board'>
       {numbers.map((number, i) => {
         return (
-          <div key={i}>
-            <p key={i} style={{
+          <button
+            className='status-board-button'
+            key={i}
+            onClick={() => dispatch(highlightNumbers(number))}
+            style={{
               color: checkNumberComplete(number) ? 'grey' : 'black',
               fontWeight: checkNumberComplete(number) ? 100 : 300
-
-            }}>{number}</p>
-          </div>
+            }}>
+            <p key={i}>{number}</p>
+          </button>
         )
       })}
     </div>

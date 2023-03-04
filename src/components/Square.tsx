@@ -100,7 +100,7 @@ const Square: React.FC<Props> = (props) => {
   const handleClick: (e: any) => void = (e) => {
     console.log('clicked square: ', square)
     console.log('event: ', e)
-    if (notesMode) {
+    if (notesMode) { 
       dispatch(setFocus({ squareId: square.id, mousePos: { x: e.clientX, y: e.clientY }, open: true }))
     }
     else {
@@ -141,13 +141,12 @@ const Square: React.FC<Props> = (props) => {
 
   const squareStyle: React.CSSProperties = {
     color: square.correct ? 'black' : 'red',
-    backgroundColor: square.highlight ? 'rgb(236, 236, 254)' : 'white'
-
+    backgroundColor: square.focus ? 'rgb(180, 180, 255)' : square.highlight ? 'rgb(236, 236, 254)' : 'white'
   }
 
   const hoverStyle: React.CSSProperties = {
     color: square.correct ? 'black' : 'red',
-    backgroundColor: notesMode ? '--theme-light: rgb(236, 236, 254)' : square.highlight ? 'rgb(195, 195, 251)' : 'rgb(236, 236, 25)',
+    backgroundColor: notesMode ? 'rgb(236, 236, 254)' : square.highlight ? 'rgb(195, 195, 251)' : 'rgb(236, 236, 25)',
     
   }
 

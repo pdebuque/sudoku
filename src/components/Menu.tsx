@@ -6,6 +6,7 @@ import axios from 'axios'
 // internal
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { toggleNotes, setNotesFalse } from '../redux/reducers/user.reducer'
+import { setFocus } from '../redux/reducers/game.reducer'
 import type {Game} from '../model'
 
 import { setGame } from '../redux/reducers/game.reducer';
@@ -29,6 +30,7 @@ const Menu: React.FC = () => {
       if (e.code ==='Space') {
         console.log('space')
         dispatch(toggleNotes())
+        dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, open: false } ))
       }
     }
 
