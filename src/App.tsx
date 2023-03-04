@@ -33,7 +33,7 @@ function App() {
       <p>{JSON.stringify(complete)}</p> */}
       <Header />
       <Menu />
-      <FullBoard currentGame={game} />
+      <FullBoard/>
       <StatusBoard />
       <Footer />
     </div>

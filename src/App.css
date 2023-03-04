@@ -2,8 +2,8 @@
   --board-size: 35rem;
   --square-size: calc(var(--board-size)/9);
   --number-size: calc(var(--square-size)*.7);
-  --theme-color: rgb(195, 195, 251);
   --theme-light: rgb(236, 236, 254);
+  --theme-color: rgb(195, 195, 251);
   --theme-dark: rgb(180, 180, 255);
 
 }
@@ -69,10 +69,10 @@ nav button:hover {
   font-size: var(--number-size);
 }
 
-.square:hover {
+/* .square:hover {
   cursor: pointer;
   background-color: var(--theme-light);
-}
+} */
 
 /* .square p {
   margin: 0;

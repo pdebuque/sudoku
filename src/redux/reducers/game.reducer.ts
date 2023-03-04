@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
-import { blankGame, BoardInt, SquareInt } from '../../model';
+import { blankGame, BoardInt, SquareInt, blankSquare } from '../../model';
 import type { Game } from '../../model';
 
 
@@ -123,10 +123,12 @@ const gameSlice = createSlice({
       state.focus.squareId = action.payload.squareId;
       state.focus.mousePos = action.payload.mousePos;
       const flatBoard = state.game.board.flat();
-      const square = flatBoard.filter(el => el.id === action.payload.squareId)[0];
+      const square = flatBoard.filter(el => el.id === action.payload.squareId)[0] || blankSquare;
       square.focus = true;
       for (let el of flatBoard) {
-        if (el.column === square.column || el.row === square.row || el.medSquare === square.medSquare) el.highlight = true
+        if (el.column === square.column || el.row === square.row || el.medSquare === square.medSquare || el.value === square.value && el.value !==0) el.highlight = true
+        else el.highlight=false
+        if (el.id !== square.id) el.focus=false
       }
     }
   }

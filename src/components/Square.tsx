@@ -26,14 +26,51 @@ const Square: React.FC<Props> = (props) => {
     currentGame,
   } = props
 
+  //* ============= about this component ===============
+  /* 
+  interface SquareInt {
+    id: number;
+    row: number;
+    column: number;
+    medSquare: number;
+    notes: number[];
+    value: number | string;
+    static: boolean;
+    correct: boolean;
+    highlight: boolean;
+    focus: boolean;
+  }
+
+  notesMode: boolean
+
+  local state: input value; hover
+
+  functions:
+    - click to focus (turn off in notes mode)
+    - submit
+    - escape
+
+  style: 
+    - highlight && hover => background-color: dark-blue
+    - highlight & !hover => background-color: blue
+    - !higlight & hover => background-color: blue
+    - !highlight & !hover => background-color: white
+    - correct ? color: black : red
+    - static ? font-weight: 400 : 100
+    - notesMode => cursor: pencil; hover: no effect
+    - !notesMode => cursor: pointer; hover: background-color
+
+  */
+
 
   const dispatch = useAppDispatch();
-  const { game } = useAppSelector((state) => state.game);
+  // const { game } = useAppSelector((state) => state.game);
   const { notesMode, focusSquare } = useAppSelector((state) => state.user);
 
 
   // const [focus, setFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<number | string>('')
+  const [hover, setHover] = useState<boolean>(false)
   // const [menuOpen, setMenuOpen] = useState<boolean>(false)
   // const [mousePos, setMousePos] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
 
@@ -47,26 +84,23 @@ const Square: React.FC<Props> = (props) => {
   //* ============== functions ===================
 
   // escape key handler to close focus
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.code === 'Escape') {
-        dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, open: false }))
-      }
-    }
-    document.addEventListener('keydown', handleEscape);
+  // useEffect(() => {
+  //   const handleEscape = (e: KeyboardEvent) => {
+  //     console.log('escape')
+  //     if (e.code === 'Escape') {
+  //       dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, open: false }))
+  //     }
+  //   }
+  //   document.addEventListener('keydown', handleEscape);
 
-    return () => document.removeEventListener('keydown', handleEscape)
-  }, [])
+  //   return () => document.removeEventListener('keydown', handleEscape)
+  // }, [])
 
 
   const handleClick: (e: any) => void = (e) => {
     console.log('clicked square: ', square)
     console.log('event: ', e)
     if (notesMode) {
-
-      // setMousePos({ x: e.clientX, y: e.clientY })
-      // setMenuOpen(true);
-
       dispatch(setFocus({ squareId: square.id, mousePos: { x: e.clientX, y: e.clientY }, open: true }))
     }
     else {
@@ -76,6 +110,7 @@ const Square: React.FC<Props> = (props) => {
 
   const handleDisable: () => void = () => {
     // console.log('cannot click this square')
+    dispatch(setFocus({ squareId: square.id, mousePos: { x: 0, y: 0 }, open: false }));
   }
 
   const handleSubmit: (e: any) => void = (e) => {
@@ -91,22 +126,47 @@ const Square: React.FC<Props> = (props) => {
 
   //* ============= styles =====================
 
+  /* 
+    style: 
+      - highlight && hover => background-color: dark-blue
+      - highlight & !hover => background-color: blue
+      - !higlight & hover => background-color: blue
+      - !highlight & !hover => background-color: white
+      - correct ? color: black : red
+      - static ? font-weight: 400 : 100
+      - notesMode => cursor: pencil; hover: no effect
+      - !notesMode => cursor: pointer; hover: background-color
+  
+  */
+
   const squareStyle: React.CSSProperties = {
-    color: square.correct ? 'black' : 'red'
+    color: square.correct ? 'black' : 'red',
+    backgroundColor: square.highlight ? 'rgb(236, 236, 254)' : 'white'
+
+  }
+
+  const hoverStyle: React.CSSProperties = {
+    color: square.correct ? 'black' : 'red',
+    backgroundColor: notesMode ? '--theme-light: rgb(236, 236, 254)' : square.highlight ? 'rgb(195, 195, 251)' : 'rgb(236, 236, 25)',
+    
   }
 
   return (
     <div
       className='square'
       onClick={square.static ? handleDisable : handleClick}
-      style={squareStyle}
+      style={hover ? hoverStyle : squareStyle }
+      onMouseEnter = {()=>setHover(true)}
+      onMouseLeave = {()=>setHover(false)}
     >
+      {/* {JSON.stringify(square.focus)} */}
+      {/* {JSON.stringify(hover)} */}
       {/* <p>{JSON.stringify(square.correct)}</p> */}
       {/* {JSON.stringify(square.id)} */}
       {/* {JSON.stringify(square.row)} */}
       {/* {JSON.stringify([square.row, square.column])} */}
       {
-        square.focus ?
+        square.focus && !square.static ?
           <form onSubmit={handleSubmit}>
             <input
               style={squareStyle}
