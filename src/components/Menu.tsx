@@ -6,7 +6,7 @@ import { DateTime } from 'luxon';
 
 // internal
 import { useAppDispatch, useAppSelector } from '../hooks'
-import { setFocus, toggleNotes, setNotesFalse } from '../redux/reducers/game.reducer'
+import { setFocus, toggleNotes, setNotes } from '../redux/reducers/game.reducer'
 import type { Game } from '../model'
 
 import { setGame } from '../redux/reducers/game.reducer';
@@ -14,14 +14,14 @@ import { setGame } from '../redux/reducers/game.reducer';
 const Menu: React.FC = () => {
 
   const dispatch = useAppDispatch()
-  const { game, complete } = useAppSelector(state => state.game)
+  const { game, complete, focus } = useAppSelector(state => state.game)
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.repeat) { return }
       if (e.code === 'Escape') {
         console.log('escape')
-        dispatch(setNotesFalse())
+        dispatch(setNotes(false))
       }
     }
     const handleSpace = (e: KeyboardEvent) => {
@@ -29,7 +29,7 @@ const Menu: React.FC = () => {
       if (e.code === 'Space') {
         console.log('space')
         dispatch(toggleNotes())
-        dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, open: false }))
+        dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, value: focus.value, open: false }))
       }
     }
 

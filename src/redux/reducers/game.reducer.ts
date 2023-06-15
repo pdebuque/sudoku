@@ -7,6 +7,7 @@ import type { Game } from '../../model';
 
 interface Focus {
   squareId: number;
+  value: number;
   mousePos: { x: number, y: number };
   open: boolean;
 }
@@ -20,7 +21,7 @@ type InitialState = {
 
 const initialState: InitialState = {
   game: blankGame,
-  focus: { squareId: 0, mousePos: { x: 0, y: 0 }, open: false },
+  focus: { squareId: 0, mousePos: { x: 0, y: 0 }, value: 0, open: false },
   complete: false,
   notesMode: false,
 }
@@ -74,10 +75,16 @@ const gameSlice = createSlice({
         }
       }
     },
+
+    saveValueById(state, action: PayloadAction<{ squareId: number, value: number }>) {
+      const squareToChange = state.game.board.flat().filter(square => square.id === action.payload.squareId)[0];
+      squareToChange.value = action.payload.value;
+
+    },
     // receive id number of square to check, update square.correct accordingly
     checkSquareById(state, action: PayloadAction<number>) {
       const id = action.payload;
-      console.log('checking correct of id: ', id)
+      // console.log('checking correct of id: ', id)
       // console.log('game:', current(state.game.board))
       const flatBoard = state.game.board.flat()
       // console.log('flat board:', current(state.game.board).flat())
@@ -146,15 +153,23 @@ const gameSlice = createSlice({
     toggleNotes(state) {
       state.notesMode = !state.notesMode
     },
-    setNotesFalse(state) {
-      state.notesMode = false
-    },
-    setNotesTrue(state) {
-      state.notesMode = true
+    setNotes(state, action: PayloadAction<boolean>) {
+      state.notesMode = action.payload
     },
   }
 })
 
-export const { saveValue, setGame, checkSquareById, checkComplete, updateNotes, setFocus, highlightNumbers, toggleNotes, setNotesFalse, setNotesTrue } = gameSlice.actions;
+export const {
+  saveValue,
+  setGame,
+  checkSquareById,
+  checkComplete,
+  updateNotes,
+  setFocus,
+  highlightNumbers,
+  toggleNotes,
+  setNotes,
+  saveValueById
+} = gameSlice.actions;
 
 export default gameSlice.reducer;

@@ -16,12 +16,12 @@ const userSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    incrementScore(state) {
-      state.score = state.score + 1
+    changeScore(state, action: PayloadAction<number>) {
+      state.score = state.score + action.payload
     },
   }
 })
 
-export const { incrementScore,} = userSlice.actions;
+export const { changeScore } = userSlice.actions;
 
 export default userSlice.reducer;

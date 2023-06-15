@@ -15,6 +15,8 @@
 }
 
 header {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
   background-color: rgb(195, 195, 251);
   padding: 0.01em 0 .5em 0;
   width: calc(var(--board-size)*1.2);
@@ -24,6 +26,19 @@ header {
 
 h1 {
   margin-bottom: 0;
+}
+
+.about {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+  background-color: white;
+  padding: 1rem;
+  border: 2px solid var(--theme-dark);
+  border-radius: .5rem;
+
 }
 
 main {
@@ -192,6 +207,6 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: rgb(195, 195, 251);
   width: calc(var(--board-size)*1.2);
   margin: auto;
-  padding: .5em 0 .01em 0 ;
+  padding: .5em 0 .01em 0;
   border-radius: 0 0 .5rem .5rem;
 }

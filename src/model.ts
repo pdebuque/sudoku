@@ -25,6 +25,13 @@ export type Game = {
   board: (number)[][];
 }
 
+export interface Focus {
+  squareId: number;
+  value: number;
+  mousePos: { x: number, y: number };
+  open: boolean;
+}
+
 // board is array of medSquare arrays
 
 export const blankSquare: SquareInt = {
@@ -84,7 +91,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 4,
+        id: 10,
         row: 2,
         column: 1,
         medSquare: 1,
@@ -97,7 +104,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 5,
+        id: 11,
         row: 2,
         column: 2,
         medSquare: 1,
@@ -110,7 +117,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 6,
+        id: 12,
         row: 2,
         column: 3,
         medSquare: 1,
@@ -123,7 +130,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 7,
+        id: 19,
         row: 3,
         column: 1,
         medSquare: 1,
@@ -136,7 +143,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 8,
+        id: 20,
         row: 3,
         column: 2,
         medSquare: 1,
@@ -149,7 +156,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 9,
+        id: 21,
         row: 3,
         column: 3,
         medSquare: 1,
@@ -164,7 +171,7 @@ export const blankGame: BoardInt = {
     ],
     [
       {
-        id: 10,
+        id: 4,
         row: 1,
         column: 4,
         medSquare: 2,
@@ -177,7 +184,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 11,
+        id: 5,
         row: 1,
         column: 5,
         medSquare: 2,
@@ -190,7 +197,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 12,
+        id: 6,
         row: 1,
         column: 6,
         medSquare: 2,
@@ -242,7 +249,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 16,
+        id: 22,
         row: 3,
         column: 4,
         medSquare: 2,
@@ -255,7 +262,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 17,
+        id: 23,
         row: 3,
         column: 5,
         medSquare: 2,
@@ -268,7 +275,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 18,
+        id: 24,
         row: 3,
         column: 6,
         medSquare: 2,
@@ -283,7 +290,7 @@ export const blankGame: BoardInt = {
     ],
     [
       {
-        id: 19,
+        id: 7,
         row: 1,
         column: 7,
         medSquare: 3,
@@ -296,7 +303,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 20,
+        id: 8,
         row: 1,
         column: 8,
         medSquare: 3,
@@ -309,7 +316,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 21,
+        id: 9,
         row: 1,
         column: 9,
         medSquare: 3,
@@ -322,7 +329,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 22,
+        id: 16,
         row: 2,
         column: 7,
         medSquare: 3,
@@ -335,7 +342,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 23,
+        id: 17,
         row: 2,
         column: 8,
         medSquare: 3,
@@ -348,7 +355,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 24,
+        id: 18,
         row: 2,
         column: 9,
         medSquare: 3,
@@ -441,7 +448,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 31,
+        id: 37,
         row: 5,
         column: 1,
         medSquare: 4,
@@ -454,7 +461,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 32,
+        id: 38,
         row: 5,
         column: 2,
         medSquare: 4,
@@ -467,7 +474,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 33,
+        id: 39,
         row: 5,
         column: 3,
         medSquare: 4,
@@ -480,7 +487,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 34,
+        id: 46,
         row: 6,
         column: 1,
         medSquare: 4,
@@ -493,7 +500,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 35,
+        id: 47,
         row: 6,
         column: 2,
         medSquare: 4,
@@ -506,7 +513,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 36,
+        id: 48,
         row: 6,
         column: 3,
         medSquare: 4,
@@ -521,7 +528,7 @@ export const blankGame: BoardInt = {
     ],
     [
       {
-        id: 37,
+        id: 31,
         row: 4,
         column: 4,
         medSquare: 5,
@@ -534,7 +541,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 38,
+        id: 32,
         row: 4,
         column: 5,
         medSquare: 5,
@@ -547,7 +554,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 39,
+        id: 33,
         row: 4,
         column: 6,
         medSquare: 5,
@@ -599,7 +606,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 43,
+        id: 49,
         row: 6,
         column: 4,
         medSquare: 5,
@@ -612,7 +619,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 44,
+        id: 50,
         row: 6,
         column: 5,
         medSquare: 5,
@@ -625,7 +632,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 45,
+        id: 51,
         row: 6,
         column: 6,
         medSquare: 5,
@@ -640,7 +647,7 @@ export const blankGame: BoardInt = {
     ],
     [
       {
-        id: 46,
+        id: 34,
         row: 4,
         column: 7,
         medSquare: 6,
@@ -653,7 +660,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 47,
+        id: 35,
         row: 4,
         column: 8,
         medSquare: 6,
@@ -666,7 +673,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 48,
+        id: 36,
         row: 4,
         column: 9,
         medSquare: 6,
@@ -679,7 +686,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 49,
+        id: 43,
         row: 5,
         column: 7,
         medSquare: 6,
@@ -692,7 +699,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 50,
+        id: 44,
         row: 5,
         column: 8,
         medSquare: 6,
@@ -705,7 +712,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 51,
+        id: 45,
         row: 5,
         column: 9,
         medSquare: 6,
@@ -798,7 +805,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 58,
+        id: 64,
         row: 8,
         column: 1,
         medSquare: 7,
@@ -811,7 +818,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 59,
+        id: 65,
         row: 8,
         column: 2,
         medSquare: 7,
@@ -824,7 +831,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 60,
+        id: 66,
         row: 8,
         column: 3,
         medSquare: 7,
@@ -837,7 +844,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 61,
+        id: 73,
         row: 9,
         column: 1,
         medSquare: 7,
@@ -850,7 +857,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 62,
+        id: 74,
         row: 9,
         column: 2,
         medSquare: 7,
@@ -863,7 +870,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 63,
+        id: 75,
         row: 9,
         column: 3,
         medSquare: 7,
@@ -878,7 +885,7 @@ export const blankGame: BoardInt = {
     ],
     [
       {
-        id: 64,
+        id: 58,
         row: 7,
         column: 4,
         medSquare: 8,
@@ -891,7 +898,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 65,
+        id: 59,
         row: 7,
         column: 5,
         medSquare: 8,
@@ -904,7 +911,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 66,
+        id: 60,
         row: 7,
         column: 6,
         medSquare: 8,
@@ -956,7 +963,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 70,
+        id: 76,
         row: 9,
         column: 4,
         medSquare: 8,
@@ -969,7 +976,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 71,
+        id: 77,
         row: 9,
         column: 5,
         medSquare: 8,
@@ -982,7 +989,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 72,
+        id: 78,
         row: 9,
         column: 6,
         medSquare: 8,
@@ -997,7 +1004,7 @@ export const blankGame: BoardInt = {
     ],
     [
       {
-        id: 73,
+        id: 61,
         row: 7,
         column: 7,
         medSquare: 9,
@@ -1010,7 +1017,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 74,
+        id: 62,
         row: 7,
         column: 8,
         medSquare: 9,
@@ -1023,7 +1030,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 75,
+        id: 63,
         row: 7,
         column: 9,
         medSquare: 9,
@@ -1036,7 +1043,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 76,
+        id: 70,
         row: 8,
         column: 7,
         medSquare: 9,
@@ -1049,7 +1056,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 77,
+        id: 71,
         row: 8,
         column: 8,
         medSquare: 9,
@@ -1062,7 +1069,7 @@ export const blankGame: BoardInt = {
         focus: false,
       },
       {
-        id: 78,
+        id: 72,
         row: 8,
         column: 9,
         medSquare: 9,

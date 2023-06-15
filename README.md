@@ -1,7 +1,7 @@
 # overview
 
 This is a simple client-side sudoku application I'm building to learn Typescript and Redux Toolkit.
-1
+</br>
 See https://sudoku-ts.herokuapp.com/ for deployment
 
 # features

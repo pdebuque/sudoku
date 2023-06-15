@@ -31,7 +31,7 @@ function App() {
     <div className="App">
       {/* <p>{JSON.stringify(game.board.flat().map(square => square.value))}</p>
       <p>{JSON.stringify(complete)}</p> */}
-      {/* {JSON.stringify(focus)} */}
+      {/* focus: {JSON.stringify(focus)} */}
       <Header />
       <main>
         <Menu />

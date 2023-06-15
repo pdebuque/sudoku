@@ -49,7 +49,7 @@ const NumberSelect: React.FC = () => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.repeat) { return }
       if (e.code === 'Escape') {
-        dispatch(setFocus({ squareId: squareId, mousePos: mousePos, open: false }))
+        dispatch(setFocus({ squareId: squareId, mousePos: mousePos, value: focus.value, open: false }))
       }
     }
 

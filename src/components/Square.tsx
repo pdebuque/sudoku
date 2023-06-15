@@ -9,8 +9,42 @@ import SquareNotes from './SquareNotes';
 // internal
 import { SquareInt, BoardInt } from '../model'
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { saveValue, checkSquareById, checkComplete, setFocus, toggleNotes } from '../redux/reducers/game.reducer';
+import { saveValue, checkSquareById, checkComplete, setFocus, toggleNotes, setNotes } from '../redux/reducers/game.reducer';
+//* ============= about this component ===============
+/* 
+interface SquareInt {
+  id: number;
+  row: number;
+  column: number;
+  medSquare: number;
+  notes: number[];
+  value: number | string;
+  static: boolean;
+  correct: boolean;
+  highlight: boolean;
+  focus: boolean;
+}
 
+notesMode: boolean
+
+local state: input value; hover
+
+functions:
+  - click to focus (turn off in notes mode)
+  - submit
+  - escape
+
+style: 
+  - highlight && hover => background-color: dark-blue
+  - highlight & !hover => background-color: blue
+  - !higlight & hover => background-color: blue
+  - !highlight & !hover => background-color: white
+  - correct ? color: black : red
+  - static ? font-weight: 400 : 100
+  - notesMode => cursor: pencil; hover: no effect
+  - !notesMode => cursor: pointer; hover: background-color
+
+*/
 
 
 interface Props {
@@ -25,46 +59,10 @@ const Square: React.FC<Props> = (props) => {
     currentGame,
   } = props
 
-  //* ============= about this component ===============
-  /* 
-  interface SquareInt {
-    id: number;
-    row: number;
-    column: number;
-    medSquare: number;
-    notes: number[];
-    value: number | string;
-    static: boolean;
-    correct: boolean;
-    highlight: boolean;
-    focus: boolean;
-  }
-
-  notesMode: boolean
-
-  local state: input value; hover
-
-  functions:
-    - click to focus (turn off in notes mode)
-    - submit
-    - escape
-
-  style: 
-    - highlight && hover => background-color: dark-blue
-    - highlight & !hover => background-color: blue
-    - !higlight & hover => background-color: blue
-    - !highlight & !hover => background-color: white
-    - correct ? color: black : red
-    - static ? font-weight: 400 : 100
-    - notesMode => cursor: pencil; hover: no effect
-    - !notesMode => cursor: pointer; hover: background-color
-
-  */ 
-
-
+  //* ================== variables =====================
   const dispatch = useAppDispatch();
   // const { game } = useAppSelector((state) => state.game);
-  const { notesMode } = useAppSelector((state) => state.game);
+  const { notesMode, focus } = useAppSelector((state) => state.game);
 
 
   // const [focus, setFocus] = useState<boolean>(false);
@@ -80,7 +78,13 @@ const Square: React.FC<Props> = (props) => {
     return <p className='dynamic-square'>{square.value}</p>
   }
 
+  //* ===================== keyboard listeners ==============
+
+
   //* ============== functions ===================
+
+
+
 
   // escape key handler to close focus
   // useEffect(() => {
@@ -101,21 +105,21 @@ const Square: React.FC<Props> = (props) => {
     console.log('event: ', e)
     if (notesMode) {
       console.log('clicked while in notes')
-      dispatch(setFocus({ squareId: square.id, mousePos: { x: e.clientX, y: e.clientY }, open: true }))
+      dispatch(setFocus({ squareId: square.id, value: focus.value, mousePos: { x: e.clientX, y: e.clientY }, open: true }))
     }
     else {
       console.log('clicked while not in notes')
-      dispatch(setFocus({ squareId: square.id, mousePos: { x: 0, y: 0 }, open: false }));
+      dispatch(setFocus({ squareId: square.id, value: focus.value, mousePos: { x: 0, y: 0 }, open: false }));
     }
   }
 
   const handleDisable: () => void = () => {
     // console.log('cannot click this square')
-    dispatch(setFocus({ squareId: square.id, mousePos: { x: 0, y: 0 }, open: false }));
+    dispatch(setFocus({ squareId: square.id, value: focus.value, mousePos: { x: 0, y: 0 }, open: false }));
   }
 
   const handleSubmit: (e: any) => void = (e) => {
-    dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, open: false }));
+    dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, value: focus.value, open: false }));
     e.preventDefault();
     console.log('submit');
     if (inputValue === 0) setInputValue('');
@@ -123,6 +127,7 @@ const Square: React.FC<Props> = (props) => {
     dispatch(checkSquareById(square.id))
     dispatch(checkComplete())
   }
+
 
 
   //* ============= styles =====================
