@@ -8,6 +8,7 @@ import { DateTime } from 'luxon';
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { setFocus, toggleNotes, setNotes } from '../redux/reducers/game.reducer'
 import type { Game } from '../model'
+import { useGetRandomPuzzleQuery } from '../redux/reducers/puzzleApi.reducer';
 
 import { setGame } from '../redux/reducers/game.reducer';
 
@@ -15,6 +16,14 @@ const Menu: React.FC = () => {
 
   const dispatch = useAppDispatch()
   const { game, complete, focus } = useAppSelector(state => state.game)
+
+  const {
+    data: puzzle,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetRandomPuzzleQuery({});
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -65,6 +74,26 @@ const Menu: React.FC = () => {
       )
       .catch(err => console.log('could not get puzzle', err))
   }
+  // const { data, error, isLoading } = useGetPuzzleQuery('')
+  const handleFetch = () => {
+    if (isLoading) {
+      console.log('fetching puzzle')
+    }
+    if (isError) {
+      console.log('error fetching puzzle', error)
+    }
+    if (isSuccess) {
+      console.log('got puzzle', puzzle)
+    }
+
+    console.log('fetching puzzle')
+
+    // make redux call to get puzzle
+    // redux thunk gets puzzle from database
+    // redux thunk dispatches setGame
+    // reload board?
+
+  }
 
   // if (!complete && timerOn) {
   //   const incrementTime = () =>{
@@ -90,7 +119,9 @@ const Menu: React.FC = () => {
       <nav>
         <div className='nav-buttons'>
           <button onClick={handlePencil}>enter notes</button>
-          <button onClick={handleRandom}>new puzzle</button></div>
+          <button onClick={handleRandom}>new puzzle</button>
+          <button onClick={handleFetch}>get from database</button>
+        </div>
         {/* <p>time: {formatTime(time)}</p> */}
         <p>time: {JSON.stringify('asdf')}</p>
         <p>Game difficulty: {game.difficulty}</p>
