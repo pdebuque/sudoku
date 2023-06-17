@@ -119,12 +119,17 @@ const Square: React.FC<Props> = (props) => {
   }
 
   const handleSubmit: (e: any) => void = (e) => {
+    // release focus
     dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, value: focus.value, open: false }));
     e.preventDefault();
     console.log('submit');
     if (inputValue === 0) setInputValue('');
+
+    // save value to square
     dispatch(saveValue({ ...square, value: inputValue }))
+
     dispatch(checkSquareById(square.id))
+
     dispatch(checkComplete())
   }
 
@@ -180,17 +185,17 @@ const Square: React.FC<Props> = (props) => {
       {/* {JSON.stringify(square.row)} */}
       {/* {JSON.stringify([square.row, square.column])} */}
       {
-        square.focus && !square.static ?
-          <form onSubmit={handleSubmit}>
-            <input
-              style={squareStyle}
-              className='square-input'
-              type='number'
-              value={inputValue}
-              onChange={(e) => setInputValue(Number(e.target.value))}
-            />
-          </form>
-          :
+        // square.focus && !square.static ?
+        //   <form onSubmit={handleSubmit}>
+        //     <input
+        //       style={squareStyle}
+        //       className='square-input'
+        //       type='number'
+        //       value={inputValue}
+        //       onChange={(e) => setInputValue(Number(e.target.value))}
+        //     />
+        //   </form>
+        //   :
           displayNumber(square)
       }
       {/* <NumberSelect

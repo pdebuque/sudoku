@@ -25,31 +25,31 @@ const Menu: React.FC = () => {
     error,
   } = useGetRandomPuzzleQuery({});
 
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.repeat) { return }
-      if (e.code === 'Escape') {
-        console.log('escape')
-        dispatch(setNotes(false))
-      }
-    }
-    const handleSpace = (e: KeyboardEvent) => {
-      if (e.repeat) { return }
-      if (e.code === 'Space') {
-        console.log('space')
-        dispatch(toggleNotes())
-        dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, value: focus.value, open: false }))
-      }
-    }
+  // useEffect(() => {
+  //   const handleEscape = (e: KeyboardEvent) => {
+  //     if (e.repeat) { return }
+  //     if (e.code === 'Escape') {
+  //       console.log('escape')
+  //       dispatch(setNotes(false))
+  //     }
+  //   }
+  //   const handleSpace = (e: KeyboardEvent) => {
+  //     if (e.repeat) { return }
+  //     if (e.code === 'Space') {
+  //       console.log('space')
+  //       dispatch(toggleNotes())
+  //       dispatch(setFocus({ squareId: 0, mousePos: { x: 0, y: 0 }, value: focus.value, open: false }))
+  //     }
+  //   }
 
-    document.addEventListener('keydown', handleEscape);
-    document.addEventListener('keydown', handleSpace)
+  //   document.addEventListener('keydown', handleEscape);
+  //   document.addEventListener('keydown', handleSpace)
 
-    return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.removeEventListener('keydown', handleSpace)
-    }
-  }, [])
+  //   return () => {
+  //     document.removeEventListener('keydown', handleEscape)
+  //     document.removeEventListener('keydown', handleSpace)
+  //   }
+  // }, [])
 
   const timeZero = DateTime
 

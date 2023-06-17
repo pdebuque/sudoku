@@ -45,56 +45,56 @@ const NumberSelect: React.FC = () => {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
   // escape key handler, num keys handler
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.repeat) { return }
-      if (e.code === 'Escape') {
-        dispatch(setFocus({ squareId: squareId, mousePos: mousePos, value: focus.value, open: false }))
-      }
-    }
+  // useEffect(() => {
+  //   const handleEscape = (e: KeyboardEvent) => {
+  //     if (e.repeat) { return }
+  //     if (e.code === 'Escape') {
+  //       dispatch(setFocus({ squareId: squareId, mousePos: mousePos, value: focus.value, open: false }))
+  //     }
+  //   }
 
-    const handleNum = (e: KeyboardEvent) => {
-      // console.log('key pressed', e.code)
-      if (e.repeat) { return }
-      switch (e.code) {
-        case 'Digit1':
-          dispatch(updateNotes({ squareId: squareId, note: 1 }));
-          return;
-        case 'Digit2':
-          dispatch(updateNotes({ squareId: squareId, note: 2 }));
-          return;
-        case 'Digit3':
-          dispatch(updateNotes({ squareId: squareId, note: 3 }));
-          return;
-        case 'Digit4':
-          dispatch(updateNotes({ squareId: squareId, note: 4 }));
-          return;
-        case 'Digit5':
-          dispatch(updateNotes({ squareId: squareId, note: 5 }));
-          return;
-        case 'Digit6':
-          dispatch(updateNotes({ squareId: squareId, note: 6 }));
-          return;
-        case 'Digit7':
-          dispatch(updateNotes({ squareId: squareId, note: 7 }));
-          return;
-        case 'Digit8':
-          dispatch(updateNotes({ squareId: squareId, note: 8 }));
-          return;
-        case 'Digit9':
-          dispatch(updateNotes({ squareId: squareId, note: 9 }));
-          return;
-        default: return
-      }
-    }
-    document.addEventListener('keydown', handleEscape);
-    // document.addEventListener('keydown', handleNum)
+  //   const handleNum = (e: KeyboardEvent) => {
+  //     // console.log('key pressed', e.code)
+  //     if (e.repeat) { return }
+  //     switch (e.code) {
+  //       case 'Digit1':
+  //         dispatch(updateNotes({ squareId: squareId, note: 1 }));
+  //         return;
+  //       case 'Digit2':
+  //         dispatch(updateNotes({ squareId: squareId, note: 2 }));
+  //         return;
+  //       case 'Digit3':
+  //         dispatch(updateNotes({ squareId: squareId, note: 3 }));
+  //         return;
+  //       case 'Digit4':
+  //         dispatch(updateNotes({ squareId: squareId, note: 4 }));
+  //         return;
+  //       case 'Digit5':
+  //         dispatch(updateNotes({ squareId: squareId, note: 5 }));
+  //         return;
+  //       case 'Digit6':
+  //         dispatch(updateNotes({ squareId: squareId, note: 6 }));
+  //         return;
+  //       case 'Digit7':
+  //         dispatch(updateNotes({ squareId: squareId, note: 7 }));
+  //         return;
+  //       case 'Digit8':
+  //         dispatch(updateNotes({ squareId: squareId, note: 8 }));
+  //         return;
+  //       case 'Digit9':
+  //         dispatch(updateNotes({ squareId: squareId, note: 9 }));
+  //         return;
+  //       default: return
+  //     }
+  //   }
+  //   document.addEventListener('keydown', handleEscape);
+  //   // document.addEventListener('keydown', handleNum)
 
-    return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.removeEventListener('keydown', handleNum)
-    }
-  }, [])
+  //   return () => {
+  //     document.removeEventListener('keydown', handleEscape)
+  //     document.removeEventListener('keydown', handleNum)
+  //   }
+  // }, [])
 
   const addNote = (num: number) => {
     dispatch(updateNotes({ squareId: squareId, note: num }))
