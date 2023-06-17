@@ -10,18 +10,19 @@ const Header = () => {
       <div></div>
       <div>
         <h1>Paolo's sudoku app</h1>
+        <button
+          onClick={() => setAboutOpen(!aboutOpen)}
+        >?</button>
         <p>built with react, typescript, and redux-toolkit</p>
       </div>
       <div
         className="question-button"
       >
-        <button
-        onClick = {()=>setAboutOpen(!aboutOpen)}
-        >?</button>
+
       </div>
-      <About 
-        aboutOpen = {aboutOpen}
-        setAboutOpen = {setAboutOpen}
+      <About
+        aboutOpen={aboutOpen}
+        setAboutOpen={setAboutOpen}
       />
     </header>
   )

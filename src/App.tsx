@@ -68,7 +68,10 @@ function App() {
       case 'Digit9': enterDigit(9);
         break;
       case 'ArrowRight': {
-        if (!(focus.squareId % 9)) {
+        if (!(focus.squareId)) {
+          dispatch(setFocus({ ...focus, squareId: 1 }))
+        }
+        else if (!(focus.squareId % 9)) {
           // if on right edge, move to beginning of current row
 
           dispatch(setFocus({ ...focus, squareId: focus.squareId - 8 }));
@@ -79,17 +82,24 @@ function App() {
       }
         break;
       case 'ArrowLeft': {
-        if (!((focus.squareId - 1) % 9)) {
-          // if on left edge, move to end of current row
-          dispatch(setFocus({ ...focus, squareId: focus.squareId + 8 }));
+        if (!(focus.squareId)) {
+          dispatch(setFocus({ ...focus, squareId: 1 }))
         }
-        else {
-          dispatch(setFocus({ ...focus, squareId: (focus.squareId - 1) % 81 }));
-        }
+        else
+          if (!((focus.squareId - 1) % 9)) {
+            // if on left edge, move to end of current row
+            dispatch(setFocus({ ...focus, squareId: focus.squareId + 8 }));
+          }
+          else {
+            dispatch(setFocus({ ...focus, squareId: (focus.squareId - 1) % 81 }));
+          }
       }
         break;
       case 'ArrowUp': {
-        if (focus.squareId < 10) {
+        if (!(focus.squareId)) {
+          dispatch(setFocus({ ...focus, squareId: 1 }))
+        }
+        else if (focus.squareId < 10) {
           // if on top edge, move to bottom of current column
           dispatch(setFocus({ ...focus, squareId: focus.squareId + 72 }));
         }
@@ -99,7 +109,12 @@ function App() {
       }
         break;
       case 'ArrowDown': {
-        dispatch(setFocus({ ...focus, squareId: (focus.squareId + 9) % 81 }));
+        if (!(focus.squareId)) {
+          dispatch(setFocus({ ...focus, squareId: 1 }))
+        }
+        else {
+          dispatch(setFocus({ ...focus, squareId: (focus.squareId + 9) % 81 }));
+        }
       }
         break;
       default: return
