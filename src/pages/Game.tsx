@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css';
+// import './App.css';
 
 // libraries
 import { useAppSelector, useAppDispatch } from '../hooks'
@@ -145,13 +145,11 @@ const Game = () => {
       {/* <p>{JSON.stringify(game.board.flat().map(square => square.value))}</p>
       <p>{JSON.stringify(complete)}</p> */}
       {/* focus: {JSON.stringify(focus)} */}
-      <Header />
       <main>
         <Menu />
         <FullBoard />
         <StatusBoard />
       </main>
-      <Footer />
     </div>
   );
 }

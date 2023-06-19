@@ -24,9 +24,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
-
-      <Footer/>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Navigate to="/game" />} />
+        <Route path="/game" element={<Game />} />
+      </Routes>
+      <Footer />
 
     </div>
   )
